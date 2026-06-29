@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ファイルハッシュ計算ツール - ブラウザでMD5/SHA-1/SHA-256、アップロード不要</title>
+<meta name="description" content="ファイルのMD5・SHA-1・SHA-256・SHA-512チェックサムをブラウザ内でローカル計算。ファイルはアップロードされず、すべて端末内で処理します。転送時間と容量単位の換算も付属し、Quark NetDiskなどからのダウンロード検証に使えます。">
+<meta name="author" content="沈砚">
+<link rel="canonical" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "ファイルハッシュ計算ツール - ブラウザでMD5/SHA-1/SHA-256、アップロード不要",
+   "url": "https://cell70horn.github.io/ja/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "ja",
+   "description": "ファイルのMD5・SHA-1・SHA-256・SHA-512チェックサムをブラウザ内でローカル計算。ファイルはアップロードされず、すべて端末内で処理します。転送時間と容量単位の換算も付属し、Quark NetDiskなどからのダウンロード検証に使えます。",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "ja",
+   "url": "https://cell70horn.github.io/ja/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "ハッシュ計算のためにこのサイトへファイルをアップロードしても安全ですか？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "本ツールは何もアップロードしません。計算はすべてブラウザ内でWeb Cryptoと内蔵スクリプトにより行われ、ファイルは端末外に出ず、オフラインでも動作します。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "MD5やSHA-1は安全でないのに、なぜ用意されているのですか？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "高速で、偶発的な破損の検出には十分だからです。ただし衝突を意図的に作れるため改ざん検証には使えません。安全性が必要ならSHA-256を使ってください。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "なぜブラウザはSHA-256を計算できてMD5はできないのですか？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ブラウザのWeb CryptoはSHA-1/256/384/512のみでMD5を含みません。本ページのMD5はオープンソースのJavaScript実装で、同じく端末内で動作します。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "計算値が公式値と大文字小文字だけ違います。一致と見てよいですか？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ハッシュは大文字小文字を区別せず、16進の内容だけが意味を持ちます。照合時はケースと空白を無視するので、文字列が同じなら一致です。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "チェックサムが一致しない場合は？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ダウンロード中の破損か改変です。削除して、できれば公式の入手先から再ダウンロードし、もう一度検証してください。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "GBとGiBの違いは？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GBは十進（1000進）、GiBは二進（1024進、IEC標準）です。1 GiBは約1.074 GBで、表示容量が公称と異なる一因です。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Quark NetDiskからダウンロードしたファイルも検証できますか？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "できます。Quark NetDiskからダウンロード後、本ツールにドロップしてSHA-256を取得し、公開者のチェックサムと照合すれば、完全で信頼できるか確認できます。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">言語: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <strong>日本語</strong> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>ファイルハッシュ計算ツール（ローカル処理・アップロードなし）</h1>
+<p class="lead">ファイルをドロップすると、ブラウザがその場でMD5 / SHA-1 / SHA-256 / SHA-512のチェックサムを計算し、ダウンロードが完全か、破損や改ざんがないかを確認できます。処理はすべて端末内で行われ、ファイルがデバイスの外に出たりサーバーへ送られたりすることはありません。</p>
+<p class="cta">クラウドからダウンロードしたインストーラーの確認に特に便利です。公式ページが公開しているチェックサムと、ここで計算した値を照合してください。クライアントを再ダウンロードするには <a href="https://quarknetdisk.com/download/">Quark NetDisk パソコン版 公式ダウンロードページ</a> からインストーラーを入手できます。</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_ja.webp"><img src="/img/cover_ja.png" alt="ブラウザがアップロードせずにファイルハッシュをローカル計算する流れの図" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>図1：ファイルは端末内に留まり、ブラウザがブロック単位で読み取りチェックサムを生成 — アップロードなし</figcaption></figure>
+<section class="tool" id="hash"><h2>① ファイルハッシュ計算</h2><p>ファイルを選ぶかドラッグすると、4種類のチェックサムを自動計算します。テキストを貼り付けて計算することもできます。</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">ファイルを選択</button><div class="dh">またはここにファイルをドロップ — 端末内で処理し、アップロードしません</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">コピー</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">コピー</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">コピー</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">コピー</button></div></div><div class="cmp"><label>公式のチェックサムを貼り付けると自動照合：</label><input type="text" id="exp" placeholder="公開されているハッシュをここに貼り付け" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>またはテキストを貼り付けて計算：</summary><textarea id="txt" rows="3" placeholder="ハッシュを計算したいテキストをここに貼り付け"></textarea><button type="button" id="htxt" class="btn">テキストを計算</button></details><p class="note">計算はすべてブラウザ内でローカルに行われ、ファイルはアップロードされません。</p></section><section class="tool" id="conv"><h2>② 転送時間と容量単位の換算</h2><p>指定した速度でファイルの転送にかかるおおよその時間を見積もり、十進（GB）と二進（GiB）の単位を換算します。</p><div class="cv"><div class="cvg"><label>データ容量</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>回線速度</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>推定転送時間</span><b id="ttime">—</b></div><div class="cvtab"><span>容量単位の換算</span><div id="units" class="units"></div></div><p class="note">実際の速度はサーバー・経路・同時接続に左右されるため、これは理論上の目安です。</p></section>
+<h2>ローカルでのハッシュ計算のしくみ</h2><p>最近のブラウザにはWeb Cryptoインターフェース（crypto.subtle.digest）が備わり、SHA-1・SHA-256・SHA-512を端末内で計算できます。MD5はこのインターフェースに含まれないため、ページ内蔵のオープンソースJavaScriptで実装しています。ファイルはFileReaderでメモリに読み込み、ブロック単位で計算し、通信は一切発生しません。</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ブラウザがアップロードせずにファイルハッシュをローカル計算する流れの図" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">ファイル</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">計算はすべてブラウザ内でローカルに行われ、ファイルはアップロードされません。</text></svg><figcaption>図1：ファイルは端末内に留まり、ブラウザがブロック単位で読み取りチェックサムを生成 — アップロードなし</figcaption></figure>
+<h2>チェックサムでダウンロードを検証する方法</h2><p>クラウドや公式サイトからファイルをダウンロードしたら、上のツールにドロップしてチェックサムを取得し、公開者が示す公式の値と1文字ずつ照合します。完全一致ならファイルは完全で改ざんなし。1文字でも違えば転送中の破損か改変なので、再ダウンロードしてください。SHA-256を優先しましょう。MD5やSHA-1は高速ですが改ざん検証には不向きです。</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ローカル計算したハッシュと公式公開値を照合する検証フロー図" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">一致：ファイルは完全で改ざんなし</text></svg><figcaption>図2：ローカルの値と公式値が1文字ずつ一致して初めてファイルを信頼できる</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_ja.webp"><img src="/img/board_ja.png" alt="ローカル計算したハッシュと公式公開値を照合する検証フロー図" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>図2：ローカルの値と公式値が1文字ずつ一致して初めてファイルを信頼できる</figcaption></figure>
+<h2>MD5・SHA-1・SHA-256の選び方</h2><p>4つのアルゴリズムはいずれも固定長の「指紋」を生成しますが、安全性は大きく異なります。下表は公開標準と公式公告に基づきます。</p><table class="cmp-t"><thead><tr><th>アルゴリズム</th><th>出力ビット数</th><th>安全性の現状</th><th>適した用途</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>衝突耐性なし（RFC 6151）</td><td>偶発的な破損の確認のみ。改ざん対策には不可</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>NISTが2022年に退役を発表、2030年までに全廃</td><td>旧システム互換用。新規利用は非推奨</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>SHA-2系、現状は安全（FIPS 180-4）</td><td>推奨：ダウンロード検証・完全性確認</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>SHA-2系、現状は安全（FIPS 180-4）</td><td>より長いハッシュが必要なときに</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>2026 転送時間の目安</h2><p>一般的な家庭用ブロードバンド速度で、サイズの異なるファイルの転送にかかる時間の理論上の目安です。ダウンロードと検証の待ち時間の見当に。帯域のみで換算し、ハンドシェイクや同時接続、ディスク書き込みの負荷は含みません。</p><table class="cmp-t"><thead><tr><th>ファイルサイズ</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1分 20秒</td><td>8秒</td><td>1秒</td></tr><tr><td>1 GB</td><td>13分 20秒</td><td>1分 20秒</td><td>8秒</td></tr><tr><td>10 GB</td><td>2時間 13分</td><td>13分 20秒</td><td>1分 20秒</td></tr></tbody></table><p class="note est">目安 · 実測ではない一次推定（2026）</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>ハッシュ計算のためにこのサイトへファイルをアップロードしても安全ですか？</summary><div>本ツールは何もアップロードしません。計算はすべてブラウザ内でWeb Cryptoと内蔵スクリプトにより行われ、ファイルは端末外に出ず、オフラインでも動作します。</div></details><details class="faq"><summary>MD5やSHA-1は安全でないのに、なぜ用意されているのですか？</summary><div>高速で、偶発的な破損の検出には十分だからです。ただし衝突を意図的に作れるため改ざん検証には使えません。安全性が必要ならSHA-256を使ってください。</div></details><details class="faq"><summary>なぜブラウザはSHA-256を計算できてMD5はできないのですか？</summary><div>ブラウザのWeb CryptoはSHA-1/256/384/512のみでMD5を含みません。本ページのMD5はオープンソースのJavaScript実装で、同じく端末内で動作します。</div></details><details class="faq"><summary>計算値が公式値と大文字小文字だけ違います。一致と見てよいですか？</summary><div>ハッシュは大文字小文字を区別せず、16進の内容だけが意味を持ちます。照合時はケースと空白を無視するので、文字列が同じなら一致です。</div></details><details class="faq"><summary>チェックサムが一致しない場合は？</summary><div>ダウンロード中の破損か改変です。削除して、できれば公式の入手先から再ダウンロードし、もう一度検証してください。</div></details><details class="faq"><summary>GBとGiBの違いは？</summary><div>GBは十進（1000進）、GiBは二進（1024進、IEC標準）です。1 GiBは約1.074 GBで、表示容量が公称と異なる一因です。</div></details><details class="faq"><summary>Quark NetDiskからダウンロードしたファイルも検証できますか？</summary><div>できます。Quark NetDiskからダウンロード後、本ツールにドロップしてSHA-256を取得し、公開者のチェックサムと照合すれば、完全で信頼できるか確認できます。</div></details></section>
+<section class="related"><h2>参考資料</h2><p>本ページの技術的事実は以下の権威ある公開資料に基づきます：</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>技術的事実はMDN Web Crypto、NIST FIPS 180-4、RFC 1321 / RFC 6151、NISTの二進単位解説に基づきます。本ページはファイル完全性確認のためのオープンソースツールです。編集：沈砚。<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">ホーム</a> · MIT License</footer>
+</div>
+<script>window.QL={"computing": "ローカルで計算中…", "copied": "コピーしました", "copy": "コピー", "match": "一致：ファイルは完全で改ざんなし", "nomatch": "不一致：破損または改変の可能性、再ダウンロードを推奨", "file": "ファイル", "size": "サイズ", "d": "日", "h": "時間", "m": "分", "s": "秒"};</script><script src="/app.js"></script></body></html>
