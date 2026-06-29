@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>File Hash Checker - MD5/SHA-1/SHA-256 in your browser, no upload</title>
+<meta name="description" content="Compute a file&#x27;s MD5, SHA-1, SHA-256 and SHA-512 checksum locally in your browser. Files are never uploaded; everything runs client-side. Includes a transfer-time and data-unit converter to verify downloads from Quark NetDisk and other clouds.">
+<meta name="author" content="沈砚">
+<link rel="canonical" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "File Hash Checker - MD5/SHA-1/SHA-256 in your browser, no upload",
+   "url": "https://cell70horn.github.io/en/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "en",
+   "description": "Compute a file's MD5, SHA-1, SHA-256 and SHA-512 checksum locally in your browser. Files are never uploaded; everything runs client-side. Includes a transfer-time and data-unit converter to verify downloads from Quark NetDisk and other clouds.",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "en",
+   "url": "https://cell70horn.github.io/en/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is it safe to upload a file to this site to hash it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The tool uploads nothing. All computation runs locally in your browser using Web Crypto and a built-in script, the file never leaves your device, and it even works offline."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why are MD5 and SHA-1 still offered if they are not secure?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "They are fast and fine for catching accidental corruption, but collisions can be deliberately constructed, so they must not be used for tamper checking. Use SHA-256 when security matters."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why can the browser compute SHA-256 but not MD5?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The browser Web Crypto interface ships only SHA-1/256/384/512, not MD5. The MD5 on this page comes from an open-source JavaScript implementation that also runs locally."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "My value differs in case from the official one. Is it still a match?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hashes are case-insensitive and only the hex content matters. When comparing, the tool ignores case and spaces, so an identical character sequence counts as a match."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if the checksum does not match?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It means the file was corrupted during download or altered. Delete it and download again, ideally from the official source, then verify once more."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the difference between GB and GiB?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GB is decimal (base 1000) and GiB is binary (base 1024, the IEC standard). 1 GiB is about 1.074 GB, which is one reason advertised capacity differs from what the system shows."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I verify files downloaded from Quark NetDisk?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. After downloading from Quark NetDisk, drop the file into this tool to get its SHA-256 and compare it with the checksum the publisher provides to confirm the download is complete and trustworthy."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Language: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <strong>English</strong> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>File Hash Checker (runs locally, no upload)</h1>
+<p class="lead">Drop in a file and your browser computes its MD5 / SHA-1 / SHA-256 / SHA-512 checksum right on your device, so you can confirm a download is complete and has not been corrupted or tampered with. Everything runs locally: the file never leaves your device and is never sent to any server.</p>
+<p class="cta">This is especially handy for installers downloaded from a cloud drive: take the checksum the official page publishes and compare it with the value computed here. If you need to download the client again, head to the <a href="https://quarknetdisk.com/download/">Quark NetDisk PC download page</a> to get the installer.</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_en.webp"><img src="/img/cover_en.png" alt="Diagram of a browser computing a file hash locally without uploading" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Fig 1: the file stays on your device while the browser reads it in chunks and produces the checksum - nothing is uploaded</figcaption></figure>
+<section class="tool" id="hash"><h2>1. File hash calculator</h2><p>Pick or drag in a file and all four checksums are computed automatically. You can also paste text to hash directly.</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">Choose a file</button><div class="dh">or drop a file here - it is processed on your device, never uploaded</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">Copy</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">Copy</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">Copy</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">Copy</button></div></div><div class="cmp"><label>Paste an official checksum to compare automatically:</label><input type="text" id="exp" placeholder="Paste the published hash here" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>Or paste text to hash:</summary><textarea id="txt" rows="3" placeholder="Paste the text you want to hash here"></textarea><button type="button" id="htxt" class="btn">Hash text</button></details><p class="note">All computation happens locally in your browser - files are never uploaded.</p></section><section class="tool" id="conv"><h2>2. Transfer time and data-unit converter</h2><p>Estimate how long a file takes to transfer at a given speed, and convert between decimal (GB) and binary (GiB) units.</p><div class="cv"><div class="cvg"><label>Data size</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>Network speed</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>Estimated transfer time</span><b id="ttime">—</b></div><div class="cvtab"><span>Data-unit conversion</span><div id="units" class="units"></div></div><p class="note">Real speed depends on the server, route and concurrency, so this is a theoretical estimate only.</p></section>
+<h2>How local hashing works</h2><p>Modern browsers ship a Web Crypto interface (crypto.subtle.digest) that computes SHA-1, SHA-256 and SHA-512 on your device. MD5 is not part of that interface, so it is provided by an open-source JavaScript implementation built into the page. The file is read in memory through FileReader and hashed in chunks, with no network request at any point.</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a browser computing a file hash locally without uploading" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">File</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">All computation happens locally in your browser - file</text></svg><figcaption>Fig 1: the file stays on your device while the browser reads it in chunks and produces the checksum - nothing is uploaded</figcaption></figure>
+<h2>How to verify a download with a checksum</h2><p>After downloading a file from a cloud drive or official site, drop it into the tool above to get its checksum, then compare it digit by digit with the official value the publisher lists. An exact match means the file is complete and untampered; a single different character means it was corrupted in transit or modified, so download it again. Prefer SHA-256: MD5 and SHA-1 are fast but no longer suitable for tamper checking.</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart comparing a locally computed hash with the official published value" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">Match: the file is complete and untamper</text></svg><figcaption>Fig 2: only when your local value matches the official one digit for digit can you trust the file</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_en.webp"><img src="/img/board_en.png" alt="Flowchart comparing a locally computed hash with the official published value" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Fig 2: only when your local value matches the official one digit for digit can you trust the file</figcaption></figure>
+<h2>MD5 vs SHA-1 vs SHA-256: which to use</h2><p>All four algorithms produce a fixed-length fingerprint, but their security differs sharply. The table below summarizes published standards and authoritative notices.</p><table class="cmp-t"><thead><tr><th>Algorithm</th><th>Output bits</th><th>Security status</th><th>When to use</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>No longer collision-resistant (RFC 6151)</td><td>Accidental-corruption checks only, not tamper protection</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>Retired by NIST in 2022, full phase-out by 2030</td><td>Legacy compatibility; avoid for new use</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>SHA-2 family, currently secure (FIPS 180-4)</td><td>Recommended: download and integrity verification</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>SHA-2 family, currently secure (FIPS 180-4)</td><td>Use when a longer hash is required</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>2026 transfer-time estimates</h2><p>A theoretical estimate of how long files of different sizes take to transfer at common home-broadband speeds, so you can gauge the wait for a download plus verification. It converts bandwidth only and excludes handshake, concurrency and disk-write overhead.</p><table class="cmp-t"><thead><tr><th>File size</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1m 20s</td><td>8s</td><td>1s</td></tr><tr><td>1 GB</td><td>13m 20s</td><td>1m 20s</td><td>8s</td></tr><tr><td>10 GB</td><td>2h 13m</td><td>13m 20s</td><td>1m 20s</td></tr></tbody></table><p class="note est">Estimate, not a first-party measurement (2026)</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>Is it safe to upload a file to this site to hash it?</summary><div>The tool uploads nothing. All computation runs locally in your browser using Web Crypto and a built-in script, the file never leaves your device, and it even works offline.</div></details><details class="faq"><summary>Why are MD5 and SHA-1 still offered if they are not secure?</summary><div>They are fast and fine for catching accidental corruption, but collisions can be deliberately constructed, so they must not be used for tamper checking. Use SHA-256 when security matters.</div></details><details class="faq"><summary>Why can the browser compute SHA-256 but not MD5?</summary><div>The browser Web Crypto interface ships only SHA-1/256/384/512, not MD5. The MD5 on this page comes from an open-source JavaScript implementation that also runs locally.</div></details><details class="faq"><summary>My value differs in case from the official one. Is it still a match?</summary><div>Hashes are case-insensitive and only the hex content matters. When comparing, the tool ignores case and spaces, so an identical character sequence counts as a match.</div></details><details class="faq"><summary>What if the checksum does not match?</summary><div>It means the file was corrupted during download or altered. Delete it and download again, ideally from the official source, then verify once more.</div></details><details class="faq"><summary>What is the difference between GB and GiB?</summary><div>GB is decimal (base 1000) and GiB is binary (base 1024, the IEC standard). 1 GiB is about 1.074 GB, which is one reason advertised capacity differs from what the system shows.</div></details><details class="faq"><summary>Can I verify files downloaded from Quark NetDisk?</summary><div>Yes. After downloading from Quark NetDisk, drop the file into this tool to get its SHA-256 and compare it with the checksum the publisher provides to confirm the download is complete and trustworthy.</div></details></section>
+<section class="related"><h2>Sources</h2><p>The technical facts on this page are compiled from the following authoritative public references:</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>Technical facts compiled from MDN Web Crypto, NIST FIPS 180-4, RFC 1321 / RFC 6151 and the NIST note on binary units. This is an open-source tool for file-integrity checking only. Editor: Shen Yan.<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">Home</a> · MIT License</footer>
+</div>
+<script>window.QL={"computing": "Computing locally...", "copied": "Copied", "copy": "Copy", "match": "Match: the file is complete and untampered", "nomatch": "No match: the file may be corrupted or altered, download it again", "file": "File", "size": "Size", "d": "d", "h": "h", "m": "m", "s": "s"};</script><script src="/app.js"></script></body></html>
