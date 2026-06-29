@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ตัวตรวจสอบแฮชไฟล์ - MD5/SHA-1/SHA-256 ในเบราว์เซอร์ของคุณ ไม่มีการอัปโหลด</title>
+<meta name="description" content="คำนวณผลรวมตรวจสอบ MD5, SHA-1, SHA-256 และ SHA-512 ของไฟล์ในเบราว์เซอร์ของคุณ ไฟล์จะไม่ถูกอัพโหลด ทุกอย่างทำงานฝั่งไคลเอ็นต์ รวมเวลาการถ่ายโอนและตัวแปลงหน่วยข้อมูลเพื่อตรวจสอบการดาวน์โหลดจาก Quark NetDisk และคลาวด์อื่นๆ">
+<meta name="author" content="沈砚">
+<link rel="canonical" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "ตัวตรวจสอบแฮชไฟล์ - MD5/SHA-1/SHA-256 ในเบราว์เซอร์ของคุณ ไม่มีการอัปโหลด",
+   "url": "https://cell70horn.github.io/th/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "th",
+   "description": "คำนวณผลรวมตรวจสอบ MD5, SHA-1, SHA-256 และ SHA-512 ของไฟล์ในเบราว์เซอร์ของคุณ ไฟล์จะไม่ถูกอัพโหลด ทุกอย่างทำงานฝั่งไคลเอ็นต์ รวมเวลาการถ่ายโอนและตัวแปลงหน่วยข้อมูลเพื่อตรวจสอบการดาวน์โหลดจาก Quark NetDisk และคลาวด์อื่นๆ",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "th",
+   "url": "https://cell70horn.github.io/th/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "การอัปโหลดไฟล์ไปยังไซต์นี้เพื่อแฮชจะปลอดภัยหรือไม่",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "เครื่องมือไม่ได้อัปโหลดอะไรเลย การคำนวณทั้งหมดทำงานภายในเบราว์เซอร์ของคุณโดยใช้ Web Crypto และสคริปต์ในตัว ไฟล์จะไม่ออกจากอุปกรณ์ของคุณ และยังทำงานแบบออฟไลน์ได้ด้วย"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "เหตุใดจึงยังคงเสนอ MD5 และ SHA-1 หากไม่ปลอดภัย",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "รวดเร็วและดีในการตรวจจับการทุจริตโดยไม่ได้ตั้งใจ แต่การชนกันสามารถสร้างขึ้นได้โดยเจตนา ดังนั้นจึงต้องไม่ใช้เพื่อตรวจสอบการงัดแงะ ใช้ SHA-256 เมื่อเรื่องความปลอดภัยเป็นสิ่งสำคัญ"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "เหตุใดเบราว์เซอร์จึงสามารถคำนวณ SHA-256 ได้ แต่ไม่ใช่ MD5",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "อินเทอร์เฟซ Web Crypto ของเบราว์เซอร์จัดส่งเฉพาะ SHA-1/256/384/512 ไม่ใช่ MD5 MD5 ในหน้านี้มาจากการใช้งาน JavaScript แบบโอเพ่นซอร์สที่ทำงานภายในเครื่องด้วย"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "คุณค่าของฉันแตกต่างไปจากที่เป็นทางการ ยังแข่งกันอยู่มั้ย?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "แฮชไม่คำนึงถึงขนาดตัวพิมพ์และเฉพาะเนื้อหาฐานสิบหกเท่านั้นที่สำคัญ เมื่อเปรียบเทียบ เครื่องมือจะละเว้นตัวพิมพ์และช่องว่าง ดังนั้นลำดับอักขระที่เหมือนกันจะนับว่าตรงกัน"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "จะทำอย่างไรถ้าผลรวมตรวจสอบไม่ตรงกัน?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "หมายความว่าไฟล์เสียหายระหว่างการดาวน์โหลดหรือถูกแก้ไข ลบออกแล้วดาวน์โหลดอีกครั้ง โดยควรมาจากแหล่งที่มาอย่างเป็นทางการ จากนั้นตรวจสอบอีกครั้ง"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "GB และ GiB แตกต่างกันอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GB เป็นทศนิยม (ฐาน 1,000) และ GiB เป็นไบนารี (ฐาน 1,024 ซึ่งเป็นมาตรฐาน IEC) 1 GiB มีขนาดประมาณ 1.074 GB ซึ่งเป็นเหตุผลหนึ่งที่ความจุที่โฆษณาแตกต่างจากที่ระบบแสดง"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ฉันสามารถตรวจสอบไฟล์ที่ดาวน์โหลดจาก Quark NetDisk ได้หรือไม่",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ใช่. หลังจากดาวน์โหลดจาก Quark NetDisk ให้วางไฟล์ลงในเครื่องมือนี้เพื่อรับ SHA-256 และเปรียบเทียบกับผลรวมตรวจสอบที่ผู้เผยแพร่ให้ไว้เพื่อยืนยันว่าการดาวน์โหลดเสร็จสมบูรณ์และเชื่อถือได้"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">ภาษา: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <strong>ไทย</strong> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>File Hash Checker (ทำงานภายในเครื่อง ไม่มีการอัพโหลด)</h1>
+<p class="lead">วางไฟล์แล้วเบราว์เซอร์ของคุณจะคำนวณผลรวมตรวจสอบ MD5 / SHA-1 / SHA-256 / SHA-512 บนอุปกรณ์ของคุณ คุณจึงสามารถยืนยันได้ว่าการดาวน์โหลดเสร็จสมบูรณ์ และไม่เสียหายหรือถูกดัดแปลง ทุกอย่างทำงานภายในเครื่อง: ไฟล์จะไม่ออกจากอุปกรณ์ของคุณและจะไม่ถูกส่งไปยังเซิร์ฟเวอร์ใดๆ</p>
+<p class="cta">สิ่งนี้มีประโยชน์อย่างยิ่งสำหรับผู้ติดตั้งที่ดาวน์โหลดจากคลาวด์ไดรฟ์: นำผลรวมตรวจสอบที่เพจทางการเผยแพร่และเปรียบเทียบกับค่าที่คำนวณได้ที่นี่ หากคุณต้องการดาวน์โหลดไคลเอนต์อีกครั้ง ให้ไปที่ <a href="https://quarknetdisk.com/download/">หน้าดาวน์โหลด Quark NetDisk PC</a> เพื่อรับตัวติดตั้ง</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_th.webp"><img src="/img/cover_th.png" alt="ไดอะแกรมของเบราว์เซอร์ที่ประมวลผลไฟล์แฮชในเครื่องโดยไม่ต้องอัปโหลด" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>รูปที่ 1: ไฟล์ยังคงอยู่ในอุปกรณ์ของคุณในขณะที่เบราว์เซอร์อ่านเป็นชิ้น ๆ และสร้างเช็คซัม - ไม่มีการอัพโหลดเลย</figcaption></figure>
+<section class="tool" id="hash"><h2>1. เครื่องคำนวณแฮชไฟล์</h2><p>เลือกหรือลากไฟล์ จากนั้นเช็คซัมทั้งสี่รายการจะถูกคำนวณโดยอัตโนมัติ คุณยังสามารถวางข้อความเพื่อแฮชได้โดยตรง</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">เลือกไฟล์</button><div class="dh">หรือวางไฟล์ที่นี่ - ไฟล์ดังกล่าวได้รับการประมวลผลบนอุปกรณ์ของคุณ และไม่เคยอัปโหลด</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">สำเนา</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">สำเนา</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">สำเนา</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">สำเนา</button></div></div><div class="cmp"><label>วางเช็คซัมอย่างเป็นทางการเพื่อเปรียบเทียบโดยอัตโนมัติ:</label><input type="text" id="exp" placeholder="วางแฮชที่เผยแพร่ที่นี่" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>หรือวางข้อความเพื่อแฮช:</summary><textarea id="txt" rows="3" placeholder="วางข้อความที่คุณต้องการแฮชที่นี่"></textarea><button type="button" id="htxt" class="btn">ข้อความแฮช</button></details><p class="note">การคำนวณทั้งหมดเกิดขึ้นในเบราว์เซอร์ของคุณ - ไฟล์จะไม่ถูกอัพโหลด</p></section><section class="tool" id="conv"><h2>2. เวลาในการถ่ายโอนและตัวแปลงหน่วยข้อมูล</h2><p>ประมาณระยะเวลาที่ไฟล์ใช้ในการถ่ายโอนด้วยความเร็วที่กำหนด และแปลงระหว่างหน่วยทศนิยม (GB) และไบนารี่ (GiB)</p><div class="cv"><div class="cvg"><label>ขนาดข้อมูล</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>ความเร็วเครือข่าย</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>ระยะเวลาการโอนโดยประมาณ</span><b id="ttime">—</b></div><div class="cvtab"><span>การแปลงหน่วยข้อมูล</span><div id="units" class="units"></div></div><p class="note">ความเร็วจริงขึ้นอยู่กับเซิร์ฟเวอร์ เส้นทาง และการทำงานพร้อมกัน ดังนั้น นี่เป็นการประมาณการทางทฤษฎีเท่านั้น</p></section>
+<h2>วิธีการทำงานของการแฮชในเครื่อง</h2><p>เบราว์เซอร์สมัยใหม่มีอินเทอร์เฟซ Web Crypto (crypto.subtle.digest) ที่คำนวณ SHA-1, SHA-256 และ SHA-512 บนอุปกรณ์ของคุณ MD5 ไม่ได้เป็นส่วนหนึ่งของอินเทอร์เฟซนั้น ดังนั้นจึงมีให้โดยการใช้งาน JavaScript แบบโอเพ่นซอร์สที่สร้างไว้ในเพจ ไฟล์จะถูกอ่านในหน่วยความจำผ่าน FileReader และถูกแฮชเป็นกลุ่มๆ โดยไม่มีคำขอเครือข่ายใดๆ เลย</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ไดอะแกรมของเบราว์เซอร์ที่ประมวลผลไฟล์แฮชในเครื่องโดยไม่ต้องอัปโหลด" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">ไฟล์</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">การคำนวณทั้งหมดเกิดขึ้นในเบราว์เซอร์ของคุณ - ไฟล์จะไม่</text></svg><figcaption>รูปที่ 1: ไฟล์ยังคงอยู่ในอุปกรณ์ของคุณในขณะที่เบราว์เซอร์อ่านเป็นชิ้น ๆ และสร้างเช็คซัม - ไม่มีการอัพโหลดเลย</figcaption></figure>
+<h2>วิธีตรวจสอบการดาวน์โหลดด้วยเช็คซัม</h2><p>หลังจากดาวน์โหลดไฟล์จากคลาวด์ไดรฟ์หรือเว็บไซต์อย่างเป็นทางการแล้ว ให้วางไฟล์ลงในเครื่องมือด้านบนเพื่อรับผลรวมตรวจสอบ จากนั้นเปรียบเทียบเป็นตัวเลขทีละหลักกับค่าอย่างเป็นทางการที่ผู้จัดพิมพ์ระบุไว้ การจับคู่แบบตรงทั้งหมดหมายความว่าไฟล์เสร็จสมบูรณ์และไม่มีการดัดแปลง อักขระที่แตกต่างกันเพียงตัวเดียวหมายความว่าได้รับความเสียหายระหว่างการขนส่งหรือแก้ไข ดังนั้นให้ดาวน์โหลดอีกครั้ง ต้องการ SHA-256: MD5 และ SHA-1 นั้นรวดเร็ว แต่ไม่เหมาะสำหรับการตรวจสอบการงัดแงะอีกต่อไป</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ผังงานเปรียบเทียบแฮชที่คำนวณในเครื่องกับค่าที่เผยแพร่อย่างเป็นทางการ" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">Match: ไฟล์เสร็จสมบูรณ์และไม่มีการดัดแปล</text></svg><figcaption>รูปที่ 2: เฉพาะเมื่อค่าในเครื่องของคุณตรงกับตัวเลขอย่างเป็นทางการสำหรับหลักเท่านั้นที่คุณสามารถเชื่อถือไฟล์ได้</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_th.webp"><img src="/img/board_th.png" alt="ผังงานเปรียบเทียบแฮชที่คำนวณในเครื่องกับค่าที่เผยแพร่อย่างเป็นทางการ" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>รูปที่ 2: เฉพาะเมื่อค่าในเครื่องของคุณตรงกับตัวเลขอย่างเป็นทางการสำหรับหลักเท่านั้นที่คุณสามารถเชื่อถือไฟล์ได้</figcaption></figure>
+<h2>MD5 กับ SHA-1 กับ SHA-256: อันไหนน่าใช้</h2><p>อัลกอริธึมทั้งสี่สร้างลายนิ้วมือที่มีความยาวคงที่ แต่ความปลอดภัยแตกต่างอย่างมาก ตารางด้านล่างสรุปมาตรฐานที่เผยแพร่และประกาศที่เชื่อถือได้</p><table class="cmp-t"><thead><tr><th>อัลกอริทึม</th><th>บิตเอาท์พุต</th><th>สถานะความปลอดภัย</th><th>เมื่อจะใช้</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>ไม่ทนต่อการชนอีกต่อไป (RFC 6151)</td><td>การตรวจสอบการทุจริตโดยอุบัติเหตุเท่านั้น ไม่ใช่การป้องกันการงัดแงะ</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>NIST เกษียณในปี 2565 และจะยุติทั้งหมดภายในปี 2573</td><td>ความเข้ากันได้แบบเดิม หลีกเลี่ยงการใช้งานใหม่</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>กลุ่ม SHA-2 มีความปลอดภัยในปัจจุบัน (FIPS 180-4)</td><td>แนะนำ: ดาวน์โหลดและการตรวจสอบความสมบูรณ์</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>กลุ่ม SHA-2 มีความปลอดภัยในปัจจุบัน (FIPS 180-4)</td><td>ใช้เมื่อต้องการแฮชที่ยาวขึ้น</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>ประมาณการเวลาการโอนปี 2026</h2><p>การประมาณทางทฤษฎีว่าไฟล์ขนาดต่างๆ จะใช้เวลานานแค่ไหนในการถ่ายโอนด้วยความเร็วโฮมบรอดแบนด์ทั่วไป ดังนั้นคุณจึงสามารถประเมินการรอการดาวน์โหลดและการตรวจสอบยืนยันได้ โดยจะแปลงแบนด์วิธเท่านั้น และไม่รวมการจับมือกัน การทำงานพร้อมกัน และค่าใช้จ่ายในการเขียนดิสก์</p><table class="cmp-t"><thead><tr><th>ขนาดไฟล์</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1นาที 20วิ</td><td>8วิ</td><td>1วิ</td></tr><tr><td>1 GB</td><td>13นาที 20วิ</td><td>1นาที 20วิ</td><td>8วิ</td></tr><tr><td>10 GB</td><td>2ชม. 13นาที</td><td>13นาที 20วิ</td><td>1นาที 20วิ</td></tr></tbody></table><p class="note est">การประมาณการ ไม่ใช่การวัดผลจากบุคคลที่หนึ่ง (2026)</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>การอัปโหลดไฟล์ไปยังไซต์นี้เพื่อแฮชจะปลอดภัยหรือไม่</summary><div>เครื่องมือไม่ได้อัปโหลดอะไรเลย การคำนวณทั้งหมดทำงานภายในเบราว์เซอร์ของคุณโดยใช้ Web Crypto และสคริปต์ในตัว ไฟล์จะไม่ออกจากอุปกรณ์ของคุณ และยังทำงานแบบออฟไลน์ได้ด้วย</div></details><details class="faq"><summary>เหตุใดจึงยังคงเสนอ MD5 และ SHA-1 หากไม่ปลอดภัย</summary><div>รวดเร็วและดีในการตรวจจับการทุจริตโดยไม่ได้ตั้งใจ แต่การชนกันสามารถสร้างขึ้นได้โดยเจตนา ดังนั้นจึงต้องไม่ใช้เพื่อตรวจสอบการงัดแงะ ใช้ SHA-256 เมื่อเรื่องความปลอดภัยเป็นสิ่งสำคัญ</div></details><details class="faq"><summary>เหตุใดเบราว์เซอร์จึงสามารถคำนวณ SHA-256 ได้ แต่ไม่ใช่ MD5</summary><div>อินเทอร์เฟซ Web Crypto ของเบราว์เซอร์จัดส่งเฉพาะ SHA-1/256/384/512 ไม่ใช่ MD5 MD5 ในหน้านี้มาจากการใช้งาน JavaScript แบบโอเพ่นซอร์สที่ทำงานภายในเครื่องด้วย</div></details><details class="faq"><summary>คุณค่าของฉันแตกต่างไปจากที่เป็นทางการ ยังแข่งกันอยู่มั้ย?</summary><div>แฮชไม่คำนึงถึงขนาดตัวพิมพ์และเฉพาะเนื้อหาฐานสิบหกเท่านั้นที่สำคัญ เมื่อเปรียบเทียบ เครื่องมือจะละเว้นตัวพิมพ์และช่องว่าง ดังนั้นลำดับอักขระที่เหมือนกันจะนับว่าตรงกัน</div></details><details class="faq"><summary>จะทำอย่างไรถ้าผลรวมตรวจสอบไม่ตรงกัน?</summary><div>หมายความว่าไฟล์เสียหายระหว่างการดาวน์โหลดหรือถูกแก้ไข ลบออกแล้วดาวน์โหลดอีกครั้ง โดยควรมาจากแหล่งที่มาอย่างเป็นทางการ จากนั้นตรวจสอบอีกครั้ง</div></details><details class="faq"><summary>GB และ GiB แตกต่างกันอย่างไร?</summary><div>GB เป็นทศนิยม (ฐาน 1,000) และ GiB เป็นไบนารี (ฐาน 1,024 ซึ่งเป็นมาตรฐาน IEC) 1 GiB มีขนาดประมาณ 1.074 GB ซึ่งเป็นเหตุผลหนึ่งที่ความจุที่โฆษณาแตกต่างจากที่ระบบแสดง</div></details><details class="faq"><summary>ฉันสามารถตรวจสอบไฟล์ที่ดาวน์โหลดจาก Quark NetDisk ได้หรือไม่</summary><div>ใช่. หลังจากดาวน์โหลดจาก Quark NetDisk ให้วางไฟล์ลงในเครื่องมือนี้เพื่อรับ SHA-256 และเปรียบเทียบกับผลรวมตรวจสอบที่ผู้เผยแพร่ให้ไว้เพื่อยืนยันว่าการดาวน์โหลดเสร็จสมบูรณ์และเชื่อถือได้</div></details></section>
+<section class="related"><h2>แหล่งที่มา</h2><p>ข้อเท็จจริงทางเทคนิคในหน้านี้รวบรวมจากข้อมูลอ้างอิงสาธารณะที่เชื่อถือได้ดังต่อไปนี้:</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>ข้อเท็จจริงทางเทคนิครวบรวมจาก MDN Web Crypto, NIST FIPS 180-4, RFC 1321 / RFC 6151 และหมายเหตุ NIST เกี่ยวกับหน่วยไบนารี นี่เป็นเครื่องมือโอเพ่นซอร์สสำหรับการตรวจสอบความสมบูรณ์ของไฟล์เท่านั้น บรรณาธิการ: เซิน หยาน<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">บ้าน</a> · MIT License</footer>
+</div>
+<script>window.QL={"computing": "คอมพิวเตอร์ในเครื่อง...", "copied": "คัดลอกแล้ว", "copy": "สำเนา", "match": "Match: ไฟล์เสร็จสมบูรณ์และไม่มีการดัดแปลง", "nomatch": "ไม่ตรงกัน: ไฟล์อาจเสียหายหรือถูกแก้ไข โปรดดาวน์โหลดอีกครั้ง", "file": "ไฟล์", "size": "ขนาด", "d": "วัน", "h": "ชม.", "m": "นาที", "s": "วิ"};</script><script src="/app.js"></script></body></html>
