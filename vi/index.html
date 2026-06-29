@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trình kiểm tra băm tệp - MD5/SHA-1/SHA-256 trong trình duyệt của bạn, không tải lên</title>
+<meta name="description" content="Tính toán tổng kiểm tra MD5, SHA-1, SHA-256 và SHA-512 của tệp cục bộ trong trình duyệt của bạn. Các tập tin không bao giờ được tải lên; mọi thứ đều chạy phía khách hàng. Bao gồm bộ chuyển đổi đơn vị dữ liệu và thời gian truyền để xác minh các lượt tải xuống từ Quark NetDisk và các đám mây khác.">
+<meta name="author" content="沈砚">
+<link rel="canonical" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Trình kiểm tra băm tệp - MD5/SHA-1/SHA-256 trong trình duyệt của bạn, không tải lên",
+   "url": "https://cell70horn.github.io/vi/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "vi",
+   "description": "Tính toán tổng kiểm tra MD5, SHA-1, SHA-256 và SHA-512 của tệp cục bộ trong trình duyệt của bạn. Các tập tin không bao giờ được tải lên; mọi thứ đều chạy phía khách hàng. Bao gồm bộ chuyển đổi đơn vị dữ liệu và thời gian truyền để xác minh các lượt tải xuống từ Quark NetDisk và các đám mây khác.",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "vi",
+   "url": "https://cell70horn.github.io/vi/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Có an toàn khi tải một tập tin lên trang web này để băm nó không?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Công cụ này không tải lên gì cả. Tất cả tính toán chạy cục bộ trong trình duyệt của bạn bằng cách sử dụng Web Crypto và tập lệnh tích hợp, tệp không bao giờ rời khỏi thiết bị của bạn và thậm chí nó còn hoạt động ngoại tuyến."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Tại sao MD5 và SHA-1 vẫn được cung cấp nếu chúng không an toàn?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Chúng có khả năng phát hiện lỗi vô tình nhanh chóng và hiệu quả, nhưng các xung đột có thể được cố tình xây dựng nên không được sử dụng để kiểm tra giả mạo. Sử dụng SHA-256 khi có vấn đề về bảo mật."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Tại sao trình duyệt có thể tính toán SHA-256 mà không tính được MD5?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Giao diện Web Crypto của trình duyệt chỉ gửi SHA-1/256/384/512, không phải MD5. MD5 trên trang này xuất phát từ việc triển khai JavaScript nguồn mở cũng chạy cục bộ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Giá trị của tôi khác với giá trị chính thức. Vẫn là một trận đấu à?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Băm không phân biệt chữ hoa chữ thường và chỉ có nội dung hex mới quan trọng. Khi so sánh, công cụ sẽ bỏ qua chữ hoa và dấu cách, do đó, một chuỗi ký tự giống hệt nhau sẽ được tính là trùng khớp."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Nếu tổng kiểm tra không khớp thì sao?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Điều đó có nghĩa là tệp đã bị hỏng trong quá trình tải xuống hoặc bị thay đổi. Xóa nó và tải xuống lại, lý tưởng nhất là từ nguồn chính thức, sau đó xác minh lại một lần nữa."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Sự khác biệt giữa GB và GiB là gì?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GB là số thập phân (cơ số 1000) và GiB là số nhị phân (cơ số 1024, tiêu chuẩn IEC). 1 GiB là khoảng 1,074 GB, đó là một lý do khiến dung lượng được quảng cáo khác với những gì hệ thống hiển thị."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Tôi có thể xác minh các tệp được tải xuống từ Quark NetDisk không?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Đúng. Sau khi tải xuống từ Quark NetDisk, hãy thả tệp vào công cụ này để lấy SHA-256 và so sánh nó với tổng kiểm tra mà nhà xuất bản cung cấp để xác nhận quá trình tải xuống đã hoàn tất và đáng tin cậy."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Ngôn ngữ: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <strong>Tiếng Việt</strong> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>Trình kiểm tra băm tệp (chạy cục bộ, không tải lên)</h1>
+<p class="lead">Hãy nhập một tệp và trình duyệt của bạn tính toán tổng kiểm tra MD5 / SHA-1 / SHA-256 / SHA-512 ngay trên thiết bị của bạn, để bạn có thể xác nhận quá trình tải xuống đã hoàn tất và không bị hỏng hoặc giả mạo. Mọi thứ chạy cục bộ: tệp không bao giờ rời khỏi thiết bị của bạn và không bao giờ được gửi đến bất kỳ máy chủ nào.</p>
+<p class="cta">Điều này đặc biệt hữu ích đối với những trình cài đặt được tải xuống từ ổ đĩa đám mây: lấy tổng kiểm tra mà trang chính thức xuất bản và so sánh nó với giá trị được tính toán ở đây. Nếu bạn cần tải xuống lại ứng dụng khách, hãy đi tới <a href="https://quarknetdisk.com/download/">Trang tải xuống Quark NetDisk PC</a> để có được trình cài đặt.</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_vi.webp"><img src="/img/cover_vi.png" alt="Sơ đồ trình duyệt tính toán hàm băm tệp cục bộ mà không cần tải lên" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Hình 1: tệp vẫn còn trên thiết bị của bạn trong khi trình duyệt đọc tệp theo từng phần và tạo tổng kiểm tra - không có gì được tải lên</figcaption></figure>
+<section class="tool" id="hash"><h2>1. Máy tính hàm băm tập tin</h2><p>Chọn hoặc kéo vào một tệp và tất cả bốn tổng kiểm tra sẽ được tính toán tự động. Bạn cũng có thể dán văn bản vào hàm băm trực tiếp.</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">Chọn một tập tin</button><div class="dh">hoặc thả tệp vào đây - tệp được xử lý trên thiết bị của bạn, không bao giờ được tải lên</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">Sao chép</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">Sao chép</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">Sao chép</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">Sao chép</button></div></div><div class="cmp"><label>Dán tổng kiểm tra chính thức để so sánh tự động:</label><input type="text" id="exp" placeholder="Dán hàm băm đã xuất bản vào đây" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>Hoặc dán văn bản vào hàm băm:</summary><textarea id="txt" rows="3" placeholder="Dán văn bản bạn muốn băm vào đây"></textarea><button type="button" id="htxt" class="btn">Văn bản băm</button></details><p class="note">Tất cả tính toán diễn ra cục bộ trong trình duyệt của bạn - các tệp không bao giờ được tải lên.</p></section><section class="tool" id="conv"><h2>2. Bộ chuyển đổi thời gian và đơn vị dữ liệu</h2><p>Ước tính thời gian truyền tệp ở tốc độ nhất định và chuyển đổi giữa đơn vị thập phân (GB) và nhị phân (GiB).</p><div class="cv"><div class="cvg"><label>Kích thước dữ liệu</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>Tốc độ mạng</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>Thời gian chuyển giao ước tính</span><b id="ttime">—</b></div><div class="cvtab"><span>Chuyển đổi đơn vị dữ liệu</span><div id="units" class="units"></div></div><p class="note">Tốc độ thực phụ thuộc vào máy chủ, tuyến đường và sự tương tranh, vì vậy đây chỉ là ước tính lý thuyết.</p></section>
+<h2>Cách băm cục bộ hoạt động</h2><p>Các trình duyệt hiện đại cung cấp giao diện Web Crypto (crypto.subtle.digest) tính toán SHA-1, SHA-256 và SHA-512 trên thiết bị của bạn. MD5 không phải là một phần của giao diện đó nên nó được cung cấp bởi triển khai JavaScript nguồn mở được tích hợp trong trang. Tệp được đọc trong bộ nhớ thông qua FileReader và được băm theo từng khối mà không cần yêu cầu mạng tại bất kỳ thời điểm nào.</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ trình duyệt tính toán hàm băm tệp cục bộ mà không cần tải lên" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">Tài liệu</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">Tất cả tính toán diễn ra cục bộ trong trình duyệt của </text></svg><figcaption>Hình 1: tệp vẫn còn trên thiết bị của bạn trong khi trình duyệt đọc tệp theo từng phần và tạo tổng kiểm tra - không có gì được tải lên</figcaption></figure>
+<h2>Cách xác minh tải xuống bằng tổng kiểm tra</h2><p>Sau khi tải xuống tệp từ ổ đĩa đám mây hoặc trang web chính thức, hãy thả tệp đó vào công cụ ở trên để lấy tổng kiểm tra, sau đó so sánh từng chữ số với giá trị chính thức mà nhà xuất bản liệt kê. Kết quả khớp chính xác có nghĩa là tệp đã hoàn chỉnh và không bị giả mạo; một ký tự khác có nghĩa là nó đã bị hỏng trong quá trình vận chuyển hoặc bị sửa đổi, vì vậy hãy tải xuống lại. Thích SHA-256: MD5 và SHA-1 nhanh nhưng không còn phù hợp để kiểm tra giả mạo.</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lưu đồ so sánh hàm băm được tính toán cục bộ với giá trị được công bố chính thức" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">Trùng khớp: tệp đã hoàn chỉnh và không b</text></svg><figcaption>Hình 2: chỉ khi giá trị cục bộ của bạn khớp với một chữ số chính thức cho chữ số thì bạn mới có thể tin cậy vào tệp</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_vi.webp"><img src="/img/board_vi.png" alt="Lưu đồ so sánh hàm băm được tính toán cục bộ với giá trị được công bố chính thức" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Hình 2: chỉ khi giá trị cục bộ của bạn khớp với một chữ số chính thức cho chữ số thì bạn mới có thể tin cậy vào tệp</figcaption></figure>
+<h2>MD5 so với SHA-1 so với SHA-256: nên sử dụng cái nào</h2><p>Tất cả bốn thuật toán đều tạo ra dấu vân tay có độ dài cố định, nhưng độ bảo mật của chúng rất khác nhau. Bảng dưới đây tóm tắt các tiêu chuẩn đã công bố và các thông báo chính thức.</p><table class="cmp-t"><thead><tr><th>Thuật toán</th><th>Bit đầu ra</th><th>Trạng thái bảo mật</th><th>Khi nào nên sử dụng</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>Không còn khả năng chống va chạm (RFC 6151)</td><td>Chỉ kiểm tra tham nhũng do tai nạn, không bảo vệ chống giả mạo</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>NIST ngừng hoạt động vào năm 2022, loại bỏ hoàn toàn vào năm 2030</td><td>Khả năng tương thích kế thừa; tránh sử dụng mới</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>Dòng SHA-2, hiện được bảo mật (FIPS 180-4)</td><td>Khuyến nghị: tải xuống và xác minh tính toàn vẹn</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>Dòng SHA-2, hiện được bảo mật (FIPS 180-4)</td><td>Sử dụng khi cần hàm băm dài hơn</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>ước tính thời gian chuyển giao năm 2026</h2><p>Ước tính lý thuyết về thời gian truyền các tệp có kích thước khác nhau ở tốc độ băng thông rộng thông thường tại nhà, do đó bạn có thể đánh giá thời gian chờ tải xuống cộng với xác minh. Nó chỉ chuyển đổi băng thông và loại trừ chi phí bắt tay, đồng thời và ghi đĩa.</p><table class="cmp-t"><thead><tr><th>Kích thước tệp</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1phút 20giây</td><td>8giây</td><td>1giây</td></tr><tr><td>1 GB</td><td>13phút 20giây</td><td>1phút 20giây</td><td>8giây</td></tr><tr><td>10 GB</td><td>2giờ 13phút</td><td>13phút 20giây</td><td>1phút 20giây</td></tr></tbody></table><p class="note est">Ước tính, không phải phép đo của bên thứ nhất (2026)</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>Có an toàn khi tải một tập tin lên trang web này để băm nó không?</summary><div>Công cụ này không tải lên gì cả. Tất cả tính toán chạy cục bộ trong trình duyệt của bạn bằng cách sử dụng Web Crypto và tập lệnh tích hợp, tệp không bao giờ rời khỏi thiết bị của bạn và thậm chí nó còn hoạt động ngoại tuyến.</div></details><details class="faq"><summary>Tại sao MD5 và SHA-1 vẫn được cung cấp nếu chúng không an toàn?</summary><div>Chúng có khả năng phát hiện lỗi vô tình nhanh chóng và hiệu quả, nhưng các xung đột có thể được cố tình xây dựng nên không được sử dụng để kiểm tra giả mạo. Sử dụng SHA-256 khi có vấn đề về bảo mật.</div></details><details class="faq"><summary>Tại sao trình duyệt có thể tính toán SHA-256 mà không tính được MD5?</summary><div>Giao diện Web Crypto của trình duyệt chỉ gửi SHA-1/256/384/512, không phải MD5. MD5 trên trang này xuất phát từ việc triển khai JavaScript nguồn mở cũng chạy cục bộ.</div></details><details class="faq"><summary>Giá trị của tôi khác với giá trị chính thức. Vẫn là một trận đấu à?</summary><div>Băm không phân biệt chữ hoa chữ thường và chỉ có nội dung hex mới quan trọng. Khi so sánh, công cụ sẽ bỏ qua chữ hoa và dấu cách, do đó, một chuỗi ký tự giống hệt nhau sẽ được tính là trùng khớp.</div></details><details class="faq"><summary>Nếu tổng kiểm tra không khớp thì sao?</summary><div>Điều đó có nghĩa là tệp đã bị hỏng trong quá trình tải xuống hoặc bị thay đổi. Xóa nó và tải xuống lại, lý tưởng nhất là từ nguồn chính thức, sau đó xác minh lại một lần nữa.</div></details><details class="faq"><summary>Sự khác biệt giữa GB và GiB là gì?</summary><div>GB là số thập phân (cơ số 1000) và GiB là số nhị phân (cơ số 1024, tiêu chuẩn IEC). 1 GiB là khoảng 1,074 GB, đó là một lý do khiến dung lượng được quảng cáo khác với những gì hệ thống hiển thị.</div></details><details class="faq"><summary>Tôi có thể xác minh các tệp được tải xuống từ Quark NetDisk không?</summary><div>Đúng. Sau khi tải xuống từ Quark NetDisk, hãy thả tệp vào công cụ này để lấy SHA-256 và so sánh nó với tổng kiểm tra mà nhà xuất bản cung cấp để xác nhận quá trình tải xuống đã hoàn tất và đáng tin cậy.</div></details></section>
+<section class="related"><h2>Nguồn</h2><p>Thông tin kỹ thuật trên trang này được tổng hợp từ các tài liệu tham khảo công khai có thẩm quyền sau đây:</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>Thông tin kỹ thuật được biên soạn từ MDN Web Crypto, NIST FIPS 180-4, RFC 1321 / RFC 6151 và ghi chú NIST về đơn vị nhị phân. Đây là một công cụ nguồn mở chỉ để kiểm tra tính toàn vẹn của tệp. Biên tập: Thẩm Yến.<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">Trang chủ</a> · MIT License</footer>
+</div>
+<script>window.QL={"computing": "Tính toán cục bộ...", "copied": "Đã sao chép", "copy": "Sao chép", "match": "Trùng khớp: tệp đã hoàn chỉnh và không bị giả mạo", "nomatch": "Không khớp: file có thể bị hỏng hoặc bị thay đổi, tải lại", "file": "Tài liệu", "size": "Kích cỡ", "d": "ngày", "h": "giờ", "m": "phút", "s": "giây"};</script><script src="/app.js"></script></body></html>
