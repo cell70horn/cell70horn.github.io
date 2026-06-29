@@ -1,35 +1,130 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>夸克网盘 电脑版 - 官方资源与在线工具</title>
-<meta name="description" content="夸克网盘相关资源导航：官网入口与免费在线小工具。夸克网盘是夸克旗下的云存储服务，支持多端同步、在线预览与高速传输。">
+<title>文件哈希校验工具 - 浏览器本地算 MD5/SHA-1/SHA-256，不上传</title>
+<meta name="description" content="在浏览器里本地计算文件的 MD5、SHA-1、SHA-256、SHA-512 校验值：文件不上传、纯客户端运算，并附传输耗时与容量单位换算。校验夸克网盘等下载文件是否完整、有没有被篡改。">
+<meta name="author" content="沈砚">
 <link rel="canonical" href="https://cell70horn.github.io/">
-<meta property="og:title" content="夸克网盘 电脑版">
-<meta property="og:description" content="夸克网盘官网入口与免费在线小工具。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://cell70horn.github.io/">
-<style>:root{--b:#1a73e8}*{box-sizing:border-box}body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;max-width:760px;margin:0 auto;padding:24px;color:#1f2937;line-height:1.7;background:#fff}h1{color:var(--b);font-size:1.6rem;margin:.2em 0}h2{font-size:1.2rem;margin-top:1.6em;border-left:4px solid var(--b);padding-left:10px}.card{border:1px solid #e5e7eb;border-radius:10px;padding:18px;margin:16px 0;background:#fafafa}a{color:var(--b)}footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;color:#9ca3af;font-size:.85rem}</style>
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "文件哈希校验工具 - 浏览器本地算 MD5/SHA-1/SHA-256，不上传",
+   "url": "https://cell70horn.github.io/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "zh-Hans",
+   "description": "在浏览器里本地计算文件的 MD5、SHA-1、SHA-256、SHA-512 校验值：文件不上传、纯客户端运算，并附传输耗时与容量单位换算。校验夸克网盘等下载文件是否完整、有没有被篡改。",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "zh-Hans",
+   "url": "https://cell70horn.github.io/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "上传文件到这个网站算哈希安全吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "工具不上传任何文件。计算全部在你浏览器本地用 Web Crypto 与内置脚本完成，文件不会离开你的设备，断网也能正常使用。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "为什么 MD5 和 SHA-1 还能用，却说不安全？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "它们算得快，适合检查文件有没有意外损坏；但已被证明能人为构造碰撞，不能再用于防篡改校验。需要安全性时请用 SHA-256。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "为什么浏览器能算 SHA-256 却不能算 MD5？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "浏览器的 Web Crypto 接口只内置了 SHA-1/256/384/512，没有 MD5。本页的 MD5 由开源 JavaScript 实现，同样在本地运行。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "算出来的校验值和官方的大小写不一样，算一致吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "哈希值不区分大小写，只看十六进制内容。比对时本工具会自动忽略大小写和空格，只要字符序列相同就算一致。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "校验值对不上怎么办？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "说明文件在下载中损坏或被改动过，建议删除后重新下载，最好换官方下载地址再校验一次。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "GB 和 GiB 有什么区别？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GB 按 1000 进制（十进制），GiB 按 1024 进制（二进制，IEC 标准）。1 GiB 约等于 1.074 GB，这也是「标称容量」和系统显示容量有差的原因之一。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "能校验夸克网盘下载的文件吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "可以。从夸克网盘下载文件后，把它拖进本工具算出 SHA-256，再和发布方给出的校验值比对，即可确认下载是否完整可信。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
-<body>
-<h1>夸克网盘</h1>
-<p>夸克网盘是夸克旗下的云存储服务，支持多端同步、在线预览与高速传输。</p>
-<div class="card">
-<h2 style="margin-top:0;border:0;padding:0">官方网站</h2>
-<p>访问 夸克网盘 官方网站，了解完整功能与下载方式：<br>
-<a href="https://quarknetdisk.com/"><strong>quarknetdisk.com</strong></a></p>
+<body><div class="wrap"><main>
+<nav class="lang">语言: <strong>简体中文</strong> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>文件哈希校验工具（本地计算 · 不上传）</h1>
+<p class="lead">把文件拖进来，浏览器会在你本机算出它的 MD5 / SHA-1 / SHA-256 / SHA-512 校验值，用来核对下载的文件是否完整、有没有损坏或被篡改。全程在本地运算，文件不会离开你的设备、不会上传到任何服务器。</p>
+<p class="cta">校验从云盘下载的安装包时尤其有用——拿到官方页面公布的校验值，和这里算出来的对一下即可。需要重新下载客户端，可前往 <a href="https://quarknetdisk.com/download/">夸克网盘电脑版官方下载页</a> 获取安装包。</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_zh.webp"><img src="/img/cover_zh.png" alt="浏览器本地计算文件哈希的流程示意图" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>图1：文件留在本机，浏览器逐块读取并算出校验值，全程不上传</figcaption></figure>
+<section class="tool" id="hash"><h2>① 文件哈希计算</h2><p>选择或拖入一个文件，自动算出四种校验值。也可以直接粘贴一段文本来计算。</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">选择文件</button><div class="dh">或把文件拖到这里 — 文件只在本机处理，不会上传</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">复制</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">复制</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">复制</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">复制</button></div></div><div class="cmp"><label>粘贴官方校验值，自动比对：</label><input type="text" id="exp" placeholder="把官方公布的哈希粘贴到这里" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>或粘贴文本计算：</summary><textarea id="txt" rows="3" placeholder="在此粘贴要计算哈希的文本"></textarea><button type="button" id="htxt" class="btn">计算文本哈希</button></details><p class="note">所有计算都在你的浏览器本地完成 — 文件绝不上传。</p></section><section class="tool" id="conv"><h2>② 传输耗时与容量单位换算</h2><p>估算一个文件在指定网速下大约要传多久，并换算十进制（GB）与二进制（GiB）容量单位。</p><div class="cv"><div class="cvg"><label>数据大小</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>网络速度</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>预计传输耗时</span><b id="ttime">—</b></div><div class="cvtab"><span>容量单位换算</span><div id="units" class="units"></div></div><p class="note">实际速度受服务器、线路、并发影响，结果仅为理论估算。</p></section>
+<h2>本地哈希是怎么算的</h2><p>现代浏览器内置 Web Crypto 接口（crypto.subtle.digest），可在本机直接计算 SHA-1、SHA-256、SHA-512；MD5 不在该接口内，由页面内置的开源 JavaScript 实现完成。文件通过 FileReader 在内存中读取后逐块计算，整个过程不发起任何网络请求。</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="浏览器本地计算文件哈希的流程示意图" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">文件</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">所有计算都在你的浏览器本地完成 — 文件绝不上传。</text></svg><figcaption>图1：文件留在本机，浏览器逐块读取并算出校验值，全程不上传</figcaption></figure>
+<h2>怎么用校验值核对下载文件</h2><p>从网盘或官网下载文件后，把它拖进上面的工具算出校验值，再和发布方公布的官方校验值逐位比对：完全相同说明文件完整、未被篡改；只要有一位不同，就说明文件在传输中损坏或被人动过，应当重新下载。优先使用 SHA-256：MD5、SHA-1 算得快但已不适合做防篡改校验。</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="把本地算出的哈希与官方公布值比对的校验流程图" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">一致：文件完整、未被篡改</text></svg><figcaption>图2：本地算出的值与官方公布值逐位一致，才能确认文件可信</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_zh.webp"><img src="/img/board_zh.png" alt="把本地算出的哈希与官方公布值比对的校验流程图" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>图2：本地算出的值与官方公布值逐位一致，才能确认文件可信</figcaption></figure>
+<h2>MD5、SHA-1、SHA-256 怎么选</h2><p>四种算法都能产出固定长度的「指纹」，但安全强度差别很大。下表按公开标准与权威公告归纳。</p><table class="cmp-t"><thead><tr><th>算法</th><th>输出位数</th><th>安全现状</th><th>适用场景</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>已不具备抗碰撞性（RFC 6151）</td><td>仅适合校验意外损坏，不要用于防篡改</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>NIST 已于 2022 年宣布退役，2030 年前全面停用</td><td>兼容老系统，新场景不建议</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>SHA-2 家族，目前安全（FIPS 180-4）</td><td>首选：下载校验、完整性验证</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>SHA-2 家族，目前安全（FIPS 180-4）</td><td>对长哈希有需求时使用</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>2026 传输耗时估算</h2><p>在常见家庭宽带速率下，传完不同大小文件所需时间的理论估算，便于判断「下载 + 校验」大概要等多久。仅按带宽折算，未计入握手、并发与磁盘写入开销。</p><table class="cmp-t"><thead><tr><th>文件大小</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1分 20秒</td><td>8秒</td><td>1秒</td></tr><tr><td>1 GB</td><td>13分 20秒</td><td>1分 20秒</td><td>8秒</td></tr><tr><td>10 GB</td><td>2时 13分</td><td>13分 20秒</td><td>1分 20秒</td></tr></tbody></table><p class="note est">估算 · 非一手实测（2026）</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>上传文件到这个网站算哈希安全吗？</summary><div>工具不上传任何文件。计算全部在你浏览器本地用 Web Crypto 与内置脚本完成，文件不会离开你的设备，断网也能正常使用。</div></details><details class="faq"><summary>为什么 MD5 和 SHA-1 还能用，却说不安全？</summary><div>它们算得快，适合检查文件有没有意外损坏；但已被证明能人为构造碰撞，不能再用于防篡改校验。需要安全性时请用 SHA-256。</div></details><details class="faq"><summary>为什么浏览器能算 SHA-256 却不能算 MD5？</summary><div>浏览器的 Web Crypto 接口只内置了 SHA-1/256/384/512，没有 MD5。本页的 MD5 由开源 JavaScript 实现，同样在本地运行。</div></details><details class="faq"><summary>算出来的校验值和官方的大小写不一样，算一致吗？</summary><div>哈希值不区分大小写，只看十六进制内容。比对时本工具会自动忽略大小写和空格，只要字符序列相同就算一致。</div></details><details class="faq"><summary>校验值对不上怎么办？</summary><div>说明文件在下载中损坏或被改动过，建议删除后重新下载，最好换官方下载地址再校验一次。</div></details><details class="faq"><summary>GB 和 GiB 有什么区别？</summary><div>GB 按 1000 进制（十进制），GiB 按 1024 进制（二进制，IEC 标准）。1 GiB 约等于 1.074 GB，这也是「标称容量」和系统显示容量有差的原因之一。</div></details><details class="faq"><summary>能校验夸克网盘下载的文件吗？</summary><div>可以。从夸克网盘下载文件后，把它拖进本工具算出 SHA-256，再和发布方给出的校验值比对，即可确认下载是否完整可信。</div></details></section>
+<section class="related"><h2>参考来源</h2><p>本页技术事实整理自以下权威公开资料：</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>技术事实整理自 MDN Web Crypto、NIST FIPS 180-4、RFC 1321 / RFC 6151 与 NIST 二进制单位说明；本页为开源工具，仅供文件完整性校验参考。编辑：沈砚。<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">首页</a> · MIT License</footer>
 </div>
-<div class="card">
-<h2 style="margin-top:0;border:0;padding:0">免费在线小工具</h2>
-<p>本站还为 夸克网盘 用户提供一个纯本地运行的小工具（数据不上传）：<br>
-<a href="https://cell70horn.github.io/quarknetdisk-file-hash/">文件哈希校验工具 →</a></p>
-</div>
-<h2>关于 夸克网盘</h2>
-<p>夸克网盘是夸克旗下的云存储服务，支持多端同步、在线预览与高速传输。 更多信息与下载请访问 <a href="https://quarknetdisk.com/">夸克网盘官网</a>。</p>
-<footer>
-<p>本页为 夸克网盘 相关资源导航页，工具均在本地浏览器处理、不上传服务器。</p>
-<p>官网：<a href="https://quarknetdisk.com/">quarknetdisk.com</a> · 最后更新：2026-06</p>
-</footer>
-</body>
-</html>
+<script>window.QL={"computing": "正在本地计算…", "copied": "已复制", "copy": "复制", "match": "✓ 一致：文件完整、未被篡改", "nomatch": "✗ 不一致：文件可能损坏或被改动，建议重新下载", "file": "文件", "size": "大小", "d": "天", "h": "时", "m": "分", "s": "秒"};</script><script src="/app.js"></script></body></html>
