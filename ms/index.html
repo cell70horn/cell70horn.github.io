@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="ms"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pemeriksa Hash Fail - MD5/SHA-1/SHA-256 dalam penyemak imbas anda, tiada muat naik</title>
+<meta name="description" content="Kirakan MD5, SHA-1, SHA-256 dan SHA-512 fail secara setempat dalam penyemak imbas anda. Fail tidak pernah dimuat naik; semuanya berjalan di sisi pelanggan. Termasuk masa pemindahan dan penukar unit data untuk mengesahkan muat turun daripada Quark NetDisk dan awan lain.">
+<meta name="author" content="沈砚">
+<link rel="canonical" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Pemeriksa Hash Fail - MD5/SHA-1/SHA-256 dalam penyemak imbas anda, tiada muat naik",
+   "url": "https://cell70horn.github.io/ms/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "ms",
+   "description": "Kirakan MD5, SHA-1, SHA-256 dan SHA-512 fail secara setempat dalam penyemak imbas anda. Fail tidak pernah dimuat naik; semuanya berjalan di sisi pelanggan. Termasuk masa pemindahan dan penukar unit data untuk mengesahkan muat turun daripada Quark NetDisk dan awan lain.",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "ms",
+   "url": "https://cell70horn.github.io/ms/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Adakah selamat untuk memuat naik fail ke tapak ini untuk mencincangnya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Alat ini tidak memuat naik apa-apa. Semua pengiraan berjalan secara setempat dalam penyemak imbas anda menggunakan Web Crypto dan skrip terbina dalam, fail itu tidak pernah meninggalkan peranti anda, malah ia berfungsi di luar talian."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Mengapa MD5 dan SHA-1 masih ditawarkan jika ia tidak selamat?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ia pantas dan baik untuk menangkap rasuah yang tidak disengajakan, tetapi perlanggaran boleh dibina dengan sengaja, jadi ia tidak boleh digunakan untuk pemeriksaan gangguan. Gunakan SHA-256 apabila keselamatan penting."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Mengapa penyemak imbas boleh mengira SHA-256 tetapi bukan MD5?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Antara muka Web Crypto penyemak imbas hanya menghantar SHA-1/256/384/512, bukan MD5. MD5 pada halaman ini datang daripada pelaksanaan JavaScript sumber terbuka yang juga berjalan secara setempat."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Nilai saya berbeza sekiranya dari yang rasmi. Adakah ia masih perlawanan?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hash tidak peka huruf besar dan kecil dan hanya kandungan heks yang penting. Apabila membandingkan, alat mengabaikan huruf besar dan ruang, jadi urutan aksara yang sama dikira sebagai padanan."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Bagaimana jika checksum tidak sepadan?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ini bermakna fail telah rosak semasa muat turun atau diubah. Padamkannya dan muat turun sekali lagi, sebaik-baiknya daripada sumber rasmi, kemudian sahkan sekali lagi."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Apakah perbezaan antara GB dan GiB?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GB ialah perpuluhan (asas 1000) dan GiB ialah binari (asas 1024, standard IEC). 1 GiB ialah kira-kira 1.074 GB, yang merupakan salah satu sebab kapasiti yang diiklankan berbeza daripada apa yang ditunjukkan oleh sistem."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Bolehkah saya mengesahkan fail yang dimuat turun daripada Quark NetDisk?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ya. Selepas memuat turun daripada Quark NetDisk, lepaskan fail ke dalam alat ini untuk mendapatkan SHA-256nya dan bandingkan dengan jumlah semak yang disediakan oleh penerbit untuk mengesahkan muat turun itu lengkap dan boleh dipercayai."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Bahasa: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <strong>Bahasa Melayu</strong> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>Pemeriksa Hash Fail (berjalan secara setempat, tiada muat naik)</h1>
+<p class="lead">Masukkan fail dan penyemak imbas anda mengira jumlah semak MD5 / SHA-1 / SHA-256 / SHA-512nya terus pada peranti anda, supaya anda boleh mengesahkan muat turun telah selesai dan tidak rosak atau diusik. Semuanya berjalan secara setempat: fail tidak pernah meninggalkan peranti anda dan tidak pernah dihantar ke mana-mana pelayan.</p>
+<p class="cta">Ini amat berguna untuk pemasang yang dimuat turun daripada pemacu awan: ambil jumlah semak yang diterbitkan oleh halaman rasmi dan bandingkan dengan nilai yang dikira di sini. Jika anda perlu memuat turun klien sekali lagi, pergi ke <a href="https://quarknetdisk.com/download/">Halaman muat turun PC Quark NetDisk</a> untuk mendapatkan pemasang.</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_ms.webp"><img src="/img/cover_ms.png" alt="Gambar rajah penyemak imbas yang mengira cincang fail secara setempat tanpa memuat naik" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Rajah 1: fail kekal pada peranti anda semasa penyemak imbas membacanya dalam ketulan dan menghasilkan checksum - tiada apa-apa yang dimuat naik</figcaption></figure>
+<section class="tool" id="hash"><h2>1. Kalkulator cincang fail</h2><p>Pilih atau seret dalam fail dan keempat-empat jumlah semak dikira secara automatik. Anda juga boleh menampal teks ke cincang secara langsung.</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">Pilih fail</button><div class="dh">atau lepaskan fail di sini - ia diproses pada peranti anda, tidak pernah dimuat naik</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">salin</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">salin</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">salin</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">salin</button></div></div><div class="cmp"><label>Tampalkan jumlah semak rasmi untuk membandingkan secara automatik:</label><input type="text" id="exp" placeholder="Tampal cincang yang diterbitkan di sini" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>Atau tampal teks ke cincang:</summary><textarea id="txt" rows="3" placeholder="Tampalkan teks yang ingin anda cincang di sini"></textarea><button type="button" id="htxt" class="btn">Teks cincang</button></details><p class="note">Semua pengiraan berlaku secara setempat dalam penyemak imbas anda - fail tidak pernah dimuat naik.</p></section><section class="tool" id="conv"><h2>2. Pemindahan masa dan penukar unit data</h2><p>Anggarkan berapa lama fail diambil untuk dipindahkan pada kelajuan tertentu, dan tukar antara unit perpuluhan (GB) dan perduaan (GiB).</p><div class="cv"><div class="cvg"><label>Saiz data</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>Kelajuan rangkaian</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>Anggaran masa pemindahan</span><b id="ttime">—</b></div><div class="cvtab"><span>Penukaran unit data</span><div id="units" class="units"></div></div><p class="note">Kelajuan sebenar bergantung pada pelayan, laluan dan konkurensi, jadi ini adalah anggaran teori sahaja.</p></section>
+<h2>Cara pencincangan tempatan berfungsi</h2><p>Penyemak imbas moden menghantar antara muka Web Crypto (crypto.subtle.digest) yang mengira SHA-1, SHA-256 dan SHA-512 pada peranti anda. MD5 bukan sebahagian daripada antara muka itu, jadi ia disediakan oleh pelaksanaan JavaScript sumber terbuka yang terbina dalam halaman. Fail dibaca dalam ingatan melalui FileReader dan dicincang dalam ketulan, tanpa permintaan rangkaian pada bila-bila masa.</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gambar rajah penyemak imbas yang mengira cincang fail secara setempat tanpa memuat naik" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">Fail</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">Semua pengiraan berlaku secara setempat dalam penyemak</text></svg><figcaption>Rajah 1: fail kekal pada peranti anda semasa penyemak imbas membacanya dalam ketulan dan menghasilkan checksum - tiada apa-apa yang dimuat naik</figcaption></figure>
+<h2>Bagaimana untuk mengesahkan muat turun dengan jumlah semak</h2><p>Selepas memuat turun fail daripada pemacu awan atau tapak rasmi, lepaskannya ke dalam alat di atas untuk mendapatkan jumlah semaknya, kemudian bandingkannya digit demi digit dengan nilai rasmi yang disenaraikan oleh penerbit. Padanan tepat bermakna fail itu lengkap dan tidak diganggu; satu aksara berbeza bermakna ia telah rosak dalam transit atau diubah suai, jadi muat turun semula. Lebih suka SHA-256: MD5 dan SHA-1 adalah pantas tetapi tidak lagi sesuai untuk pemeriksaan gangguan.</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carta alir membandingkan cincangan yang dikira secara tempatan dengan nilai diterbitkan rasmi" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">Padankan: fail lengkap dan tidak digangg</text></svg><figcaption>Rajah 2: hanya apabila nilai setempat anda sepadan dengan satu digit rasmi untuk digit, anda boleh mempercayai fail tersebut</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_ms.webp"><img src="/img/board_ms.png" alt="Carta alir membandingkan cincangan yang dikira secara tempatan dengan nilai diterbitkan rasmi" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Rajah 2: hanya apabila nilai setempat anda sepadan dengan satu digit rasmi untuk digit, anda boleh mempercayai fail tersebut</figcaption></figure>
+<h2>MD5 lwn SHA-1 lwn SHA-256: yang hendak digunakan</h2><p>Keempat-empat algoritma menghasilkan cap jari panjang tetap, tetapi keselamatannya berbeza dengan ketara. Jadual di bawah meringkaskan piawaian yang diterbitkan dan notis berwibawa.</p><table class="cmp-t"><thead><tr><th>Algoritma</th><th>Bit keluaran</th><th>Status keselamatan</th><th>Bila nak guna</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>Tidak lagi tahan perlanggaran (RFC 6151)</td><td>Pemeriksaan rasuah secara tidak sengaja sahaja, bukan perlindungan gangguan</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>Dibersarakan oleh NIST pada 2022, pemansuhan sepenuhnya menjelang 2030</td><td>Keserasian warisan; elakkan untuk kegunaan baru</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>Keluarga SHA-2, pada masa ini selamat (FIPS 180-4)</td><td>Disyorkan: muat turun dan pengesahan integriti</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>Keluarga SHA-2, pada masa ini selamat (FIPS 180-4)</td><td>Gunakan apabila cincangan yang lebih panjang diperlukan</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>Anggaran masa pemindahan 2026</h2><p>Anggaran teori tentang tempoh masa fail yang berbeza saiz diambil untuk dipindahkan pada kelajuan jalur lebar rumah biasa, supaya anda boleh mengukur penantian untuk muat turun serta pengesahan. Ia menukar lebar jalur sahaja dan tidak termasuk jabat tangan, konkurensi dan overhed tulis cakera.</p><table class="cmp-t"><thead><tr><th>Saiz fail</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1min 20saat</td><td>8saat</td><td>1saat</td></tr><tr><td>1 GB</td><td>13min 20saat</td><td>1min 20saat</td><td>8saat</td></tr><tr><td>10 GB</td><td>2j 13min</td><td>13min 20saat</td><td>1min 20saat</td></tr></tbody></table><p class="note est">Anggaran, bukan ukuran pihak pertama (2026)</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>Adakah selamat untuk memuat naik fail ke tapak ini untuk mencincangnya?</summary><div>Alat ini tidak memuat naik apa-apa. Semua pengiraan berjalan secara setempat dalam penyemak imbas anda menggunakan Web Crypto dan skrip terbina dalam, fail itu tidak pernah meninggalkan peranti anda, malah ia berfungsi di luar talian.</div></details><details class="faq"><summary>Mengapa MD5 dan SHA-1 masih ditawarkan jika ia tidak selamat?</summary><div>Ia pantas dan baik untuk menangkap rasuah yang tidak disengajakan, tetapi perlanggaran boleh dibina dengan sengaja, jadi ia tidak boleh digunakan untuk pemeriksaan gangguan. Gunakan SHA-256 apabila keselamatan penting.</div></details><details class="faq"><summary>Mengapa penyemak imbas boleh mengira SHA-256 tetapi bukan MD5?</summary><div>Antara muka Web Crypto penyemak imbas hanya menghantar SHA-1/256/384/512, bukan MD5. MD5 pada halaman ini datang daripada pelaksanaan JavaScript sumber terbuka yang juga berjalan secara setempat.</div></details><details class="faq"><summary>Nilai saya berbeza sekiranya dari yang rasmi. Adakah ia masih perlawanan?</summary><div>Hash tidak peka huruf besar dan kecil dan hanya kandungan heks yang penting. Apabila membandingkan, alat mengabaikan huruf besar dan ruang, jadi urutan aksara yang sama dikira sebagai padanan.</div></details><details class="faq"><summary>Bagaimana jika checksum tidak sepadan?</summary><div>Ini bermakna fail telah rosak semasa muat turun atau diubah. Padamkannya dan muat turun sekali lagi, sebaik-baiknya daripada sumber rasmi, kemudian sahkan sekali lagi.</div></details><details class="faq"><summary>Apakah perbezaan antara GB dan GiB?</summary><div>GB ialah perpuluhan (asas 1000) dan GiB ialah binari (asas 1024, standard IEC). 1 GiB ialah kira-kira 1.074 GB, yang merupakan salah satu sebab kapasiti yang diiklankan berbeza daripada apa yang ditunjukkan oleh sistem.</div></details><details class="faq"><summary>Bolehkah saya mengesahkan fail yang dimuat turun daripada Quark NetDisk?</summary><div>ya. Selepas memuat turun daripada Quark NetDisk, lepaskan fail ke dalam alat ini untuk mendapatkan SHA-256nya dan bandingkan dengan jumlah semak yang disediakan oleh penerbit untuk mengesahkan muat turun itu lengkap dan boleh dipercayai.</div></details></section>
+<section class="related"><h2>Sumber</h2><p>Fakta teknikal di halaman ini disusun daripada rujukan awam berwibawa berikut:</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>Fakta teknikal yang disusun daripada MDN Web Crypto, NIST FIPS 180-4, RFC 1321 / RFC 6151 dan nota NIST pada unit binari. Ini ialah alat sumber terbuka untuk semakan integriti fail sahaja. Editor: Shen Yan.<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">Rumah</a> · MIT License</footer>
+</div>
+<script>window.QL={"computing": "Pengkomputeran tempatan...", "copied": "disalin", "copy": "salin", "match": "Padankan: fail lengkap dan tidak diganggu", "nomatch": "Tiada padanan: fail mungkin rosak atau diubah, muat turun semula", "file": "Fail", "size": "Saiz", "d": "h", "h": "j", "m": "min", "s": "saat"};</script><script src="/app.js"></script></body></html>
