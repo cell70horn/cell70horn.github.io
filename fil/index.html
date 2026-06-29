@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="fil"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>File Hash Checker - MD5/SHA-1/SHA-256 sa iyong browser, walang upload</title>
+<meta name="description" content="Kalkulahin ang MD5, SHA-1, SHA-256 at SHA-512 checksum ng file nang lokal sa iyong browser. Ang mga file ay hindi kailanman ina-upload; lahat ay tumatakbo sa panig ng kliyente. May kasamang transfer-time at data-unit converter para i-verify ang mga download mula sa Quark NetDisk at iba pang cloud.">
+<meta name="author" content="沈砚">
+<link rel="canonical" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "File Hash Checker - MD5/SHA-1/SHA-256 sa iyong browser, walang upload",
+   "url": "https://cell70horn.github.io/fil/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "fil",
+   "description": "Kalkulahin ang MD5, SHA-1, SHA-256 at SHA-512 checksum ng file nang lokal sa iyong browser. Ang mga file ay hindi kailanman ina-upload; lahat ay tumatakbo sa panig ng kliyente. May kasamang transfer-time at data-unit converter para i-verify ang mga download mula sa Quark NetDisk at iba pang cloud.",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "fil",
+   "url": "https://cell70horn.github.io/fil/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Ligtas bang mag-upload ng file sa site na ito para i-hash ito?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Walang ina-upload ang tool. Ang lahat ng pagkalkula ay lokal na tumatakbo sa iyong browser gamit ang Web Crypto at isang built-in na script, ang file ay hindi kailanman umaalis sa iyong device, at kahit na ito ay gumagana offline."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Bakit inaalok pa rin ang MD5 at SHA-1 kung hindi sila secure?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ang mga ito ay mabilis at maayos para sa paghuli ng hindi sinasadyang katiwalian, ngunit ang mga banggaan ay maaaring sadyang gawin, kaya hindi dapat gamitin ang mga ito para sa tamper checking. Gamitin ang SHA-256 kapag mahalaga ang seguridad."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Bakit kayang kalkulahin ng browser ang SHA-256 ngunit hindi ang MD5?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ang browser na Web Crypto interface ay nagpapadala lamang ng SHA-1/256/384/512, hindi MD5. Ang MD5 sa page na ito ay nagmula sa isang open-source na pagpapatupad ng JavaScript na lokal din na tumatakbo."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ang aking halaga ay iba kung sakaling sa opisyal. May laban pa ba?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ang mga hash ay case-insensitive at ang hex na content lang ang mahalaga. Kapag naghahambing, binabalewala ng tool ang case at space, kaya ang magkaparehong pagkakasunud-sunod ng character ay binibilang bilang isang tugma."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Paano kung hindi tugma ang checksum?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nangangahulugan ito na ang file ay nasira sa panahon ng pag-download o binago. Tanggalin ito at i-download muli, mas mabuti mula sa opisyal na pinagmulan, pagkatapos ay i-verify muli."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ano ang pagkakaiba ng GB at GiB?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ang GB ay decimal (base 1000) at ang GiB ay binary (base 1024, ang IEC standard). Ang 1 GiB ay humigit-kumulang 1.074 GB, na isang dahilan kung bakit naiiba ang na-advertise na kapasidad sa ipinapakita ng system."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Maaari ko bang i-verify ang mga file na na-download mula sa Quark NetDisk?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Oo. Pagkatapos mag-download mula sa Quark NetDisk, i-drop ang file sa tool na ito para makuha ang SHA-256 nito at ikumpara ito sa checksum na ibinibigay ng publisher para kumpirmahin na kumpleto at mapagkakatiwalaan ang pag-download."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Wika: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <strong>Filipino</strong> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>File Hash Checker (tumatakbo nang lokal, walang pag-upload)</h1>
+<p class="lead">Maglagay ng file at kino-compute ng iyong browser ang MD5 / SHA-1 / SHA-256 / SHA-512 checksum nito mismo sa iyong device, para makumpirma mong kumpleto na ang pag-download at hindi nasira o na-tamper. Lahat ay tumatakbo nang lokal: ang file ay hindi kailanman umaalis sa iyong device at hindi kailanman ipapadala sa anumang server.</p>
+<p class="cta">Ito ay lalong madaling gamitin para sa mga installer na na-download mula sa isang cloud drive: kunin ang checksum na ini-publish ng opisyal na pahina at ihambing ito sa halagang nakalkula dito. Kung kailangan mong i-download muli ang kliyente, magtungo sa <a href="https://quarknetdisk.com/download/">Pahina ng pag-download ng Quark NetDisk PC</a> para makuha ang installer.</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_fil.webp"><img src="/img/cover_fil.png" alt="Diagram ng isang browser na kino-compute ang isang file hash nang lokal nang hindi ina-upload" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Fig 1: nananatili ang file sa iyong device habang binabasa ito ng browser nang paunti-unti at gumagawa ng checksum - walang na-upload</figcaption></figure>
+<section class="tool" id="hash"><h2>1. File hash calculator</h2><p>Pumili o mag-drag sa isang file at lahat ng apat na checksum ay awtomatikong nakalkula. Maaari ka ring direktang mag-paste ng text sa hash.</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">Pumili ng file</button><div class="dh">o mag-drop ng file dito - pinoproseso ito sa iyong device, hindi kailanman na-upload</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">Kopyahin</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">Kopyahin</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">Kopyahin</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">Kopyahin</button></div></div><div class="cmp"><label>Mag-paste ng opisyal na checksum upang awtomatikong ihambing:</label><input type="text" id="exp" placeholder="I-paste ang na-publish na hash dito" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>O i-paste ang teksto sa hash:</summary><textarea id="txt" rows="3" placeholder="I-paste ang text na gusto mong i-hash dito"></textarea><button type="button" id="htxt" class="btn">Hash text</button></details><p class="note">Ang lahat ng pagkalkula ay nangyayari nang lokal sa iyong browser - hindi kailanman ina-upload ang mga file.</p></section><section class="tool" id="conv"><h2>2. Paglipat ng oras at data-unit converter</h2><p>Tantyahin kung gaano katagal bago ilipat ang isang file sa isang ibinigay na bilis, at mag-convert sa pagitan ng decimal (GB) at binary (GiB) unit.</p><div class="cv"><div class="cvg"><label>Laki ng data</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>Bilis ng network</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>Tinatayang oras ng paglipat</span><b id="ttime">—</b></div><div class="cvtab"><span>Pag-convert ng unit ng data</span><div id="units" class="units"></div></div><p class="note">Ang tunay na bilis ay nakadepende sa server, ruta at concurrency, kaya ito ay isang teoretikal na pagtatantya lamang.</p></section>
+<h2>Paano gumagana ang lokal na hashing</h2><p>Nagpapadala ang mga modernong browser ng interface ng Web Crypto (crypto.subtle.digest) na nagko-compute ng SHA-1, SHA-256 at SHA-512 sa iyong device. Ang MD5 ay hindi bahagi ng interface na iyon, kaya ibinibigay ito ng isang open-source na pagpapatupad ng JavaScript na binuo sa pahina. Ang file ay binabasa sa memorya sa pamamagitan ng FileReader at na-hash sa mga tipak, na walang kahilingan sa network sa anumang punto.</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram ng isang browser na kino-compute ang isang file hash nang lokal nang hindi ina-upload" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">file</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">Ang lahat ng pagkalkula ay nangyayari nang lokal sa iy</text></svg><figcaption>Fig 1: nananatili ang file sa iyong device habang binabasa ito ng browser nang paunti-unti at gumagawa ng checksum - walang na-upload</figcaption></figure>
+<h2>Paano i-verify ang pag-download gamit ang checksum</h2><p>Pagkatapos mag-download ng file mula sa cloud drive o opisyal na site, i-drop ito sa tool sa itaas para makuha ang checksum nito, pagkatapos ay ikumpara ito digit sa pamamagitan ng digit sa opisyal na halaga na inilista ng publisher. Ang eksaktong tugma ay nangangahulugan na ang file ay kumpleto at hindi nababago; ang isang solong magkaibang character ay nangangahulugan na ito ay nasira sa transit o binago, kaya i-download ito muli. Mas gusto ang SHA-256: Mabilis ang MD5 at SHA-1 ngunit hindi na angkop para sa tamper checking.</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart na naghahambing ng locally computed hash sa opisyal na nai-publish na halaga" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">Tugma: ang file ay kumpleto at hindi nab</text></svg><figcaption>Fig 2: kapag ang iyong lokal na halaga ay tumugma sa opisyal na isang digit para sa digit maaari mong pagkatiwalaan ang file</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_fil.webp"><img src="/img/board_fil.png" alt="Flowchart na naghahambing ng locally computed hash sa opisyal na nai-publish na halaga" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Fig 2: kapag ang iyong lokal na halaga ay tumugma sa opisyal na isang digit para sa digit maaari mong pagkatiwalaan ang file</figcaption></figure>
+<h2>MD5 vs SHA-1 vs SHA-256: alin ang gagamitin</h2><p>Ang lahat ng apat na algorithm ay gumagawa ng fixed-length na fingerprint, ngunit ang kanilang seguridad ay naiiba nang husto. Ang talahanayan sa ibaba ay nagbubuod ng mga nai-publish na pamantayan at mga abiso sa awtoridad.</p><table class="cmp-t"><thead><tr><th>Algorithm</th><th>Mga bit ng output</th><th>Katayuan ng seguridad</th><th>Kailan gagamitin</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>Hindi na lumalaban sa banggaan (RFC 6151)</td><td>Ang mga pagsusuri sa aksidenteng katiwalian lamang, hindi proteksyon sa pakikialam</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>Itinigil ng NIST noong 2022, ganap na pag-phase-out sa 2030</td><td>Legacy compatibility; iwasan para sa bagong gamit</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>Pamilya SHA-2, kasalukuyang secure (FIPS 180-4)</td><td>Inirerekomenda: pag-download at pag-verify ng integridad</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>Pamilya SHA-2, kasalukuyang secure (FIPS 180-4)</td><td>Gamitin kapag kailangan ng mas mahabang hash</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>2026 na pagtatantya sa oras ng paglipat</h2><p>Isang teoretikal na pagtatantya kung gaano katagal bago ilipat ang mga file na may iba't ibang laki sa karaniwang bilis ng home-broadband, upang masusukat mo ang paghihintay para sa isang pag-download at pag-verify. Kino-convert nito ang bandwidth lamang at hindi kasama ang handshake, concurrency at disk-write overhead.</p><table class="cmp-t"><thead><tr><th>Laki ng file</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1min 20seg</td><td>8seg</td><td>1seg</td></tr><tr><td>1 GB</td><td>13min 20seg</td><td>1min 20seg</td><td>8seg</td></tr><tr><td>10 GB</td><td>2oras 13min</td><td>13min 20seg</td><td>1min 20seg</td></tr></tbody></table><p class="note est">Tantyahin, hindi isang pagsukat ng first-party (2026)</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>Ligtas bang mag-upload ng file sa site na ito para i-hash ito?</summary><div>Walang ina-upload ang tool. Ang lahat ng pagkalkula ay lokal na tumatakbo sa iyong browser gamit ang Web Crypto at isang built-in na script, ang file ay hindi kailanman umaalis sa iyong device, at kahit na ito ay gumagana offline.</div></details><details class="faq"><summary>Bakit inaalok pa rin ang MD5 at SHA-1 kung hindi sila secure?</summary><div>Ang mga ito ay mabilis at maayos para sa paghuli ng hindi sinasadyang katiwalian, ngunit ang mga banggaan ay maaaring sadyang gawin, kaya hindi dapat gamitin ang mga ito para sa tamper checking. Gamitin ang SHA-256 kapag mahalaga ang seguridad.</div></details><details class="faq"><summary>Bakit kayang kalkulahin ng browser ang SHA-256 ngunit hindi ang MD5?</summary><div>Ang browser na Web Crypto interface ay nagpapadala lamang ng SHA-1/256/384/512, hindi MD5. Ang MD5 sa page na ito ay nagmula sa isang open-source na pagpapatupad ng JavaScript na lokal din na tumatakbo.</div></details><details class="faq"><summary>Ang aking halaga ay iba kung sakaling sa opisyal. May laban pa ba?</summary><div>Ang mga hash ay case-insensitive at ang hex na content lang ang mahalaga. Kapag naghahambing, binabalewala ng tool ang case at space, kaya ang magkaparehong pagkakasunud-sunod ng character ay binibilang bilang isang tugma.</div></details><details class="faq"><summary>Paano kung hindi tugma ang checksum?</summary><div>Nangangahulugan ito na ang file ay nasira sa panahon ng pag-download o binago. Tanggalin ito at i-download muli, mas mabuti mula sa opisyal na pinagmulan, pagkatapos ay i-verify muli.</div></details><details class="faq"><summary>Ano ang pagkakaiba ng GB at GiB?</summary><div>Ang GB ay decimal (base 1000) at ang GiB ay binary (base 1024, ang IEC standard). Ang 1 GiB ay humigit-kumulang 1.074 GB, na isang dahilan kung bakit naiiba ang na-advertise na kapasidad sa ipinapakita ng system.</div></details><details class="faq"><summary>Maaari ko bang i-verify ang mga file na na-download mula sa Quark NetDisk?</summary><div>Oo. Pagkatapos mag-download mula sa Quark NetDisk, i-drop ang file sa tool na ito para makuha ang SHA-256 nito at ikumpara ito sa checksum na ibinibigay ng publisher para kumpirmahin na kumpleto at mapagkakatiwalaan ang pag-download.</div></details></section>
+<section class="related"><h2>Mga pinagmumulan</h2><p>Ang mga teknikal na katotohanan sa pahinang ito ay pinagsama-sama mula sa mga sumusunod na awtoritatibong pampublikong sanggunian:</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>Mga teknikal na katotohanan na pinagsama-sama mula sa MDN Web Crypto, NIST FIPS 180-4, RFC 1321 / RFC 6151 at ang tala ng NIST sa mga binary unit. Ito ay isang open-source na tool para sa pagsuri ng integridad ng file lamang. Editor: Shen Yan.<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">Bahay</a> · MIT License</footer>
+</div>
+<script>window.QL={"computing": "Lokal na nagko-compute...", "copied": "Kinopya", "copy": "Kopyahin", "match": "Tugma: ang file ay kumpleto at hindi nababago", "nomatch": "Walang tugma: maaaring masira o mabago ang file, i-download itong muli", "file": "file", "size": "Sukat", "d": "araw", "h": "oras", "m": "min", "s": "seg"};</script><script src="/app.js"></script></body></html>
