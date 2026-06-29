@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>檔案雜湊校驗工具 - 瀏覽器本地算 MD5/SHA-1/SHA-256，不上傳</title>
+<meta name="description" content="在瀏覽器裡本地計算檔案的 MD5、SHA-1、SHA-256、SHA-512 校驗值：檔案不上傳、純客戶端運算，並附傳輸耗時與容量單位換算。校驗夸克網盤等下載檔案是否完整、有沒有被篡改。">
+<meta name="author" content="沈砚">
+<link rel="canonical" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "檔案雜湊校驗工具 - 瀏覽器本地算 MD5/SHA-1/SHA-256，不上傳",
+   "url": "https://cell70horn.github.io/zh-tw/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "zh-Hant",
+   "description": "在瀏覽器裡本地計算檔案的 MD5、SHA-1、SHA-256、SHA-512 校驗值：檔案不上傳、純客戶端運算，並附傳輸耗時與容量單位換算。校驗夸克網盤等下載檔案是否完整、有沒有被篡改。",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "zh-Hant",
+   "url": "https://cell70horn.github.io/zh-tw/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "上傳檔案到這個網站算雜湊安全嗎？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "工具不上傳任何檔案。計算全部在你瀏覽器本地用 Web Crypto 與內建指令碼完成，檔案不會離開你的裝置，斷網也能正常使用。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "為什麼 MD5 和 SHA-1 還能用，卻說不安全？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "它們算得快，適合檢查檔案有沒有意外損壞；但已被證明能人為構造碰撞，不能再用於防篡改校驗。需要安全性時請用 SHA-256。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "為什麼瀏覽器能算 SHA-256 卻不能算 MD5？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "瀏覽器的 Web Crypto 介面只內建了 SHA-1/256/384/512，沒有 MD5。本頁的 MD5 由開源 JavaScript 實現，同樣在本地執行。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "算出來的校驗值和官方的大小寫不一樣，算一致嗎？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "雜湊值不區分大小寫，只看十六進位制內容。比對時本工具會自動忽略大小寫和空格，只要字元序列相同就算一致。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "校驗值對不上怎麼辦？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "說明檔案在下載中損壞或被改動過，建議刪除後重新下載，最好換官方下載地址再校驗一次。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "GB 和 GiB 有什麼區別？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GB 按 1000 進位制（十進位制），GiB 按 1024 進位制（二進位制，IEC 標準）。1 GiB 約等於 1.074 GB，這也是「標稱容量」和系統顯示容量有差的原因之一。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "能校驗夸克網盤下載的檔案嗎？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "可以。從夸克網盤下載檔案後，把它拖進本工具算出 SHA-256，再和釋出方給出的校驗值比對，即可確認下載是否完整可信。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">語言: <a href="/">简体中文</a> · <strong>繁體中文</strong> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>檔案雜湊校驗工具（本地計算 · 不上傳）</h1>
+<p class="lead">把檔案拖進來，瀏覽器會在你本機算出它的 MD5 / SHA-1 / SHA-256 / SHA-512 校驗值，用來核對下載的檔案是否完整、有沒有損壞或被篡改。全程在本地運算，檔案不會離開你的裝置、不會上傳到任何伺服器。</p>
+<p class="cta">校驗從雲盤下載的安裝包時尤其有用——拿到官方頁面公佈的校驗值，和這裡算出來的對一下即可。需要重新下載客戶端，可前往 <a href="https://quarknetdisk.com/download/">夸克網盤電腦版官方下載頁</a> 獲取安裝包。</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_tw.webp"><img src="/img/cover_tw.png" alt="瀏覽器本地計算檔案雜湊的流程示意圖" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>圖1：檔案留在本機，瀏覽器逐塊讀取並算出校驗值，全程不上傳</figcaption></figure>
+<section class="tool" id="hash"><h2>① 檔案雜湊計算</h2><p>選擇或拖入一個檔案，自動算出四種校驗值。也可以直接貼上一段文字來計算。</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">選擇檔案</button><div class="dh">或把檔案拖到這裡 — 檔案只在本機處理，不會上傳</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">複製</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">複製</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">複製</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">複製</button></div></div><div class="cmp"><label>貼上官方校驗值，自動比對：</label><input type="text" id="exp" placeholder="把官方公佈的雜湊貼上到這裡" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>或貼上文字計算：</summary><textarea id="txt" rows="3" placeholder="在此貼上要計算雜湊的文字"></textarea><button type="button" id="htxt" class="btn">計算文字雜湊</button></details><p class="note">所有計算都在你的瀏覽器本地完成 — 檔案絕不上傳。</p></section><section class="tool" id="conv"><h2>② 傳輸耗時與容量單位換算</h2><p>估算一個檔案在指定網速下大約要傳多久，並換算十進位制（GB）與二進位制（GiB）容量單位。</p><div class="cv"><div class="cvg"><label>資料大小</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>網路速度</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>預計傳輸耗時</span><b id="ttime">—</b></div><div class="cvtab"><span>容量單位換算</span><div id="units" class="units"></div></div><p class="note">實際速度受伺服器、線路、併發影響，結果僅為理論估算。</p></section>
+<h2>本地雜湊是怎麼算的</h2><p>現代瀏覽器內建 Web Crypto 介面（crypto.subtle.digest），可在本機直接計算 SHA-1、SHA-256、SHA-512；MD5 不在該介面內，由頁面內建的開源 JavaScript 實現完成。檔案透過 FileReader 在記憶體中讀取後逐塊計算，整個過程不發起任何網路請求。</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="瀏覽器本地計算檔案雜湊的流程示意圖" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">檔案</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">所有計算都在你的瀏覽器本地完成 — 檔案絕不上傳。</text></svg><figcaption>圖1：檔案留在本機，瀏覽器逐塊讀取並算出校驗值，全程不上傳</figcaption></figure>
+<h2>怎麼用校驗值核對下載檔案</h2><p>從網盤或官網下載檔案後，把它拖進上面的工具算出校驗值，再和釋出方公佈的官方校驗值逐位比對：完全相同說明檔案完整、未被篡改；只要有一位不同，就說明檔案在傳輸中損壞或被人動過，應當重新下載。優先使用 SHA-256：MD5、SHA-1 算得快但已不適合做防篡改校驗。</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="把本地算出的雜湊與官方公佈值比對的校驗流程圖" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">一致：檔案完整、未被篡改</text></svg><figcaption>圖2：本地算出的值與官方公佈值逐位一致，才能確認檔案可信</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_tw.webp"><img src="/img/board_tw.png" alt="把本地算出的雜湊與官方公佈值比對的校驗流程圖" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>圖2：本地算出的值與官方公佈值逐位一致，才能確認檔案可信</figcaption></figure>
+<h2>MD5、SHA-1、SHA-256 怎麼選</h2><p>四種演算法都能產出固定長度的「指紋」，但安全強度差別很大。下表按公開標準與權威公告歸納。</p><table class="cmp-t"><thead><tr><th>演算法</th><th>輸出位數</th><th>安全現狀</th><th>適用場景</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>已不具備抗碰撞性（RFC 6151）</td><td>僅適合校驗意外損壞，不要用於防篡改</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>NIST 已於 2022 年宣佈退役，2030 年前全面停用</td><td>相容老系統，新場景不建議</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>SHA-2 家族，目前安全（FIPS 180-4）</td><td>首選：下載校驗、完整性驗證</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>SHA-2 家族，目前安全（FIPS 180-4）</td><td>對長雜湊有需求時使用</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>2026 傳輸耗時估算</h2><p>在常見家庭寬頻速率下，傳完不同大小檔案所需時間的理論估算，便於判斷「下載 + 校驗」大概要等多久。僅按頻寬折算，未計入握手、併發與磁碟寫入開銷。</p><table class="cmp-t"><thead><tr><th>檔案大小</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1分 20秒</td><td>8秒</td><td>1秒</td></tr><tr><td>1 GB</td><td>13分 20秒</td><td>1分 20秒</td><td>8秒</td></tr><tr><td>10 GB</td><td>2時 13分</td><td>13分 20秒</td><td>1分 20秒</td></tr></tbody></table><p class="note est">估算 · 非一手實測（2026）</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>上傳檔案到這個網站算雜湊安全嗎？</summary><div>工具不上傳任何檔案。計算全部在你瀏覽器本地用 Web Crypto 與內建指令碼完成，檔案不會離開你的裝置，斷網也能正常使用。</div></details><details class="faq"><summary>為什麼 MD5 和 SHA-1 還能用，卻說不安全？</summary><div>它們算得快，適合檢查檔案有沒有意外損壞；但已被證明能人為構造碰撞，不能再用於防篡改校驗。需要安全性時請用 SHA-256。</div></details><details class="faq"><summary>為什麼瀏覽器能算 SHA-256 卻不能算 MD5？</summary><div>瀏覽器的 Web Crypto 介面只內建了 SHA-1/256/384/512，沒有 MD5。本頁的 MD5 由開源 JavaScript 實現，同樣在本地執行。</div></details><details class="faq"><summary>算出來的校驗值和官方的大小寫不一樣，算一致嗎？</summary><div>雜湊值不區分大小寫，只看十六進位制內容。比對時本工具會自動忽略大小寫和空格，只要字元序列相同就算一致。</div></details><details class="faq"><summary>校驗值對不上怎麼辦？</summary><div>說明檔案在下載中損壞或被改動過，建議刪除後重新下載，最好換官方下載地址再校驗一次。</div></details><details class="faq"><summary>GB 和 GiB 有什麼區別？</summary><div>GB 按 1000 進位制（十進位制），GiB 按 1024 進位制（二進位制，IEC 標準）。1 GiB 約等於 1.074 GB，這也是「標稱容量」和系統顯示容量有差的原因之一。</div></details><details class="faq"><summary>能校驗夸克網盤下載的檔案嗎？</summary><div>可以。從夸克網盤下載檔案後，把它拖進本工具算出 SHA-256，再和釋出方給出的校驗值比對，即可確認下載是否完整可信。</div></details></section>
+<section class="related"><h2>參考來源</h2><p>本頁技術事實整理自以下權威公開資料：</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>技術事實整理自 MDN Web Crypto、NIST FIPS 180-4、RFC 1321 / RFC 6151 與 NIST 二進位制單位說明；本頁為開源工具，僅供檔案完整性校驗參考。編輯：沈硯。<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">首頁</a> · MIT License</footer>
+</div>
+<script>window.QL={"computing": "正在本地計算…", "copied": "已複製", "copy": "複製", "match": "✓ 一致：檔案完整、未被篡改", "nomatch": "✗ 不一致：檔案可能損壞或被改動，建議重新下載", "file": "檔案", "size": "大小", "d": "天", "h": "時", "m": "分", "s": "秒"};</script><script src="/app.js"></script></body></html>
