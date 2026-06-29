@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="lo"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>File Hash Checker - MD5/SHA-1/SHA-256 ໃນຕົວທ່ອງເວັບຂອງທ່ານ, ບໍ່ມີການອັບໂຫລດ</title>
+<meta name="description" content="ຄິດໄລ່ MD5, SHA-1, SHA-256 ແລະ SHA-512 checksum ຂອງໄຟລ໌ຢູ່ໃນທ້ອງຖິ່ນໃນຕົວທ່ອງເວັບຂອງທ່ານ. ໄຟລ໌ບໍ່ເຄີຍອັບໂຫລດ; ທຸກສິ່ງທຸກຢ່າງດໍາເນີນການຂ້າງລູກຄ້າ. ລວມມີຕົວປ່ຽນເວລາໂອນ ແລະຕົວປ່ຽນຂໍ້ມູນເພື່ອຢັ້ງຢືນການດາວໂຫຼດຈາກ Quark NetDisk ແລະຄລາວອື່ນໆ.">
+<meta name="author" content="沈砚">
+<link rel="canonical" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "File Hash Checker - MD5/SHA-1/SHA-256 ໃນຕົວທ່ອງເວັບຂອງທ່ານ, ບໍ່ມີການອັບໂຫລດ",
+   "url": "https://cell70horn.github.io/lo/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "lo",
+   "description": "ຄິດໄລ່ MD5, SHA-1, SHA-256 ແລະ SHA-512 checksum ຂອງໄຟລ໌ຢູ່ໃນທ້ອງຖິ່ນໃນຕົວທ່ອງເວັບຂອງທ່ານ. ໄຟລ໌ບໍ່ເຄີຍອັບໂຫລດ; ທຸກສິ່ງທຸກຢ່າງດໍາເນີນການຂ້າງລູກຄ້າ. ລວມມີຕົວປ່ຽນເວລາໂອນ ແລະຕົວປ່ຽນຂໍ້ມູນເພື່ອຢັ້ງຢືນການດາວໂຫຼດຈາກ Quark NetDisk ແລະຄລາວອື່ນໆ.",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "lo",
+   "url": "https://cell70horn.github.io/lo/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "ມັນປອດໄພບໍທີ່ຈະອັບໂຫລດໄຟລ໌ໃສ່ເວັບໄຊທ໌ນີ້ເພື່ອ hash ມັນ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ເຄື່ອງມືອັບໂຫລດບໍ່ມີຫຍັງ. ການຄຳນວນທັງໝົດເຮັດວຽກຢູ່ໃນບຼາວເຊີຂອງທ່ານໂດຍໃຊ້ Web Crypto ແລະສະຄຣິບໃນຕົວ, ໄຟລ໌ຈະບໍ່ອອກຈາກອຸປະກອນຂອງທ່ານ, ແລະມັນຍັງເຮັດວຽກແບບອອບໄລນ໌."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ເປັນຫຍັງ MD5 ແລະ SHA-1 ຈຶ່ງຍັງສະເໜີໃຫ້ຖ້າພວກເຂົາບໍ່ປອດໄພ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ພວກເຂົາເຈົ້າແມ່ນໄວແລະປັບໄຫມສໍາລັບການຈັບການສໍ້ລາດບັງຫຼວງໂດຍບັງເອີນ, ແຕ່ການປະທະກັນສາມາດສ້າງໂດຍເຈດຕະນາ, ດັ່ງນັ້ນພວກເຂົາຕ້ອງບໍ່ຖືກນໍາໃຊ້ໃນການກວດສອບການຂັດຂວາງ. ໃຊ້ SHA-256 ເມື່ອຄວາມປອດໄພສຳຄັນ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ເປັນຫຍັງຕົວທ່ອງເວັບສາມາດຄິດໄລ່ SHA-256 ແຕ່ບໍ່ແມ່ນ MD5?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ຕົວທ່ອງເວັບຂອງ Web Crypto interface ສົ່ງພຽງແຕ່ SHA-1/256/384/512, ບໍ່ແມ່ນ MD5. MD5 ໃນຫນ້ານີ້ແມ່ນມາຈາກການປະຕິບັດ JavaScript ແບບເປີດທີ່ເຮັດວຽກຢູ່ໃນທ້ອງຖິ່ນ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ມູນຄ່າຂອງຂ້ອຍແຕກຕ່າງກັນໃນກໍລະນີທີ່ເປັນທາງການ. ມັນຍັງເປັນການແຂ່ງຂັນບໍ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hashes ແມ່ນບໍ່ຖືກຕົວພິມນ້ອຍໃຫຍ່ແລະມີພຽງແຕ່ເນື້ອໃນ hex ເທົ່ານັ້ນ. ເມື່ອປຽບທຽບ, ເຄື່ອງມືບໍ່ສົນໃຈຕົວພິມໃຫຍ່ ແລະຍະຫວ່າງ, ສະນັ້ນ ລຳດັບຕົວອັກສອນທີ່ຄືກັນນັບເປັນການຈັບຄູ່."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ຈະເປັນແນວໃດຖ້າ checksum ບໍ່ກົງກັນ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ມັນຫມາຍຄວາມວ່າໄຟລ໌ເສຍຫາຍໃນລະຫວ່າງການດາວໂຫລດຫຼືປ່ຽນແປງ. ລຶບມັນອອກແລ້ວດາວໂຫລດອີກຄັ້ງ, ໂດຍວິທີທາງການຈາກແຫຼ່ງທີ່ເປັນທາງການ, ຈາກນັ້ນໃຫ້ກວດສອບອີກຄັ້ງ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ຄວາມແຕກຕ່າງລະຫວ່າງ GB ແລະ GiB ແມ່ນຫຍັງ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GB ແມ່ນອັດຕານິຍົມ (ຖານ 1000) ແລະ GiB ແມ່ນຖານສອງ (ຖານ 1024, ມາດຕະຖານ IEC). 1 GiB ແມ່ນປະມານ 1.074 GB, ເຊິ່ງເປັນເຫດຜົນຫນຶ່ງທີ່ຄວາມສາມາດໂຄສະນາແຕກຕ່າງຈາກສິ່ງທີ່ລະບົບສະແດງໃຫ້ເຫັນ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ຂ້ອຍສາມາດກວດສອບໄຟລ໌ທີ່ດາວໂຫລດມາຈາກ Quark NetDisk ໄດ້ບໍ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ແມ່ນແລ້ວ. ຫຼັງຈາກການດາວໂຫຼດຈາກ Quark NetDisk, ວາງໄຟລ໌ເຂົ້າໄປໃນເຄື່ອງມືນີ້ເພື່ອເອົາ SHA-256 ຂອງມັນແລະປຽບທຽບກັບ checksum ທີ່ຜູ້ຈັດພິມສະຫນອງເພື່ອຢືນຢັນວ່າການດາວໂຫຼດແມ່ນສໍາເລັດແລະເຊື່ອຖືໄດ້."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">ພາສາ: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <strong>ລາວ</strong> · <a href="/my/">မြန်မာ</a></nav>
+<h1>File Hash Checker (ແລ່ນຢູ່ໃນທ້ອງຖິ່ນ, ບໍ່ມີການອັບໂຫລດ)</h1>
+<p class="lead">ວາງໄຟລ໌ໄວ້ແລ້ວບຼາວເຊີຂອງເຈົ້າຈະຄິດໄລ່ເຊັກຊັມ MD5 / SHA-1 / SHA-256 / SHA-512 ຂອງມັນຢູ່ໃນອຸປະກອນຂອງທ່ານ, ດັ່ງນັ້ນທ່ານສາມາດຢືນຢັນວ່າການດາວໂຫຼດສໍາເລັດ ແລະບໍ່ມີຄວາມເສຍຫາຍ ຫຼືຖືກລົບກວນ. ທຸກສິ່ງທຸກຢ່າງເຮັດວຽກຢູ່ໃນທ້ອງຖິ່ນ: ໄຟລ໌ບໍ່ເຄີຍອອກຈາກອຸປະກອນຂອງທ່ານແລະບໍ່ເຄີຍຖືກສົ່ງໄປຫາເຄື່ອງແມ່ຂ່າຍໃດໆ.</p>
+<p class="cta">ນີ້ແມ່ນເປັນປະໂຫຍດໂດຍສະເພາະສໍາລັບຜູ້ຕິດຕັ້ງທີ່ດາວໂຫລດມາຈາກ cloud drive: ເອົາ checksum ທີ່ຫນ້າເວັບຢ່າງເປັນທາງການເຜີຍແຜ່ແລະປຽບທຽບກັບມູນຄ່າທີ່ຄິດໄລ່ຢູ່ທີ່ນີ້. ຖ້າທ່ານຕ້ອງການດາວໂຫລດລູກຄ້າອີກເທື່ອຫນຶ່ງ, ໃຫ້ໄປທີ່ຫົວຂໍ້ <a href="https://quarknetdisk.com/download/">ຫນ້າດາວໂຫລດ Quark NetDisk PC</a> ເພື່ອເອົາຕົວຕິດຕັ້ງ.</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_lo.webp"><img src="/img/cover_lo.png" alt="ແຜນວາດຂອງບຣາວເຊີທີ່ຄຳນວນໄຟລ໌ທີ່ແຝງຢູ່ໃນເຄື່ອງໂດຍບໍ່ຕ້ອງອັບໂຫລດ" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Fig 1: ໄຟລ໌ຢູ່ໃນອຸປະກອນຂອງທ່ານໃນຂະນະທີ່ຕົວທ່ອງເວັບອ່ານມັນອອກເປັນ chunks ແລະຜະລິດ checksum - ບໍ່ມີຫຍັງຖືກອັບໂຫລດ</figcaption></figure>
+<section class="tool" id="hash"><h2>1. ເຄື່ອງຄິດໄລ່ໄຟລ໌ hash</h2><p>ເລືອກ ຫຼືລາກໃນໄຟລ໌ໃດໜຶ່ງ ແລະທັງໝົດສີ່ checksums ຖືກຄິດໄລ່ໂດຍອັດຕະໂນມັດ. ນອກນັ້ນທ່ານຍັງສາມາດວາງຂໍ້ຄວາມເພື່ອ hash ໂດຍກົງ.</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">ເລືອກໄຟລ໌</button><div class="dh">ຫຼືວາງໄຟລ໌ໄວ້ບ່ອນນີ້ - ມັນຖືກປະມວນຜົນຢູ່ໃນອຸປະກອນຂອງທ່ານ, ບໍ່ເຄີຍອັບໂຫຼດ</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">ສຳເນົາ</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">ສຳເນົາ</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">ສຳເນົາ</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">ສຳເນົາ</button></div></div><div class="cmp"><label>ວາງ checksum ຢ່າງເປັນທາງການເພື່ອປຽບທຽບອັດຕະໂນມັດ:</label><input type="text" id="exp" placeholder="ວາງ hash ທີ່ຖືກເຜີຍແຜ່ຢູ່ທີ່ນີ້" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>ຫຼືວາງຂໍ້ຄວາມໃສ່ hash:</summary><textarea id="txt" rows="3" placeholder="ວາງຂໍ້ຄວາມທີ່ທ່ານຕ້ອງການ hash ທີ່ນີ້"></textarea><button type="button" id="htxt" class="btn">ຂໍ້ຄວາມ Hash</button></details><p class="note">ການ​ຄິດ​ໄລ່​ທັງ​ຫມົດ​ເກີດ​ຂຶ້ນ​ຢູ່​ໃນ​ຕົວ​ທ່ອງ​ເວັບ​ຂອງ​ທ່ານ - ໄຟລ​໌​ແມ່ນ​ບໍ່​ເຄີຍ​ຖືກ​ອັບ​ໂຫຼດ​.</p></section><section class="tool" id="conv"><h2>2. ການ​ຖ່າຍ​ໂອນ​ທີ່​ໃຊ້​ເວ​ລາ​ແລະ​ຕົວ​ແປງ​ຂໍ້​ມູນ​ຫົວ​ຫນ່ວຍ​</h2><p>ຄາດຄະເນວ່າໄຟລ໌ໃຊ້ເວລາດົນປານໃດເພື່ອໂອນຍ້າຍດ້ວຍຄວາມໄວທີ່ກຳນົດໄວ້, ແລະປ່ຽນລະຫວ່າງໜ່ວຍທົດສະນິຍົມ (GB) ແລະ binary (GiB).</p><div class="cv"><div class="cvg"><label>ຂະໜາດຂໍ້ມູນ</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>ຄວາມໄວເຄືອຂ່າຍ</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>ເວລາໂອນໂດຍປະມານ</span><b id="ttime">—</b></div><div class="cvtab"><span>ການ​ປ່ຽນ​ແປງ​ຫົວ​ຫນ່ວຍ​ຂໍ້​ມູນ​</span><div id="units" class="units"></div></div><p class="note">ຄວາມໄວທີ່ແທ້ຈິງແມ່ນຂຶ້ນກັບເຄື່ອງແມ່ຂ່າຍ, ເສັ້ນທາງແລະ concurrency, ດັ່ງນັ້ນນີ້ແມ່ນການຄາດຄະເນທາງທິດສະດີເທົ່ານັ້ນ.</p></section>
+<h2>ວິທີການ hashing ທ້ອງຖິ່ນເຮັດວຽກ</h2><p>ຕົວທ່ອງເວັບທີ່ທັນສະໄຫມສົ່ງສ່ວນຕິດຕໍ່ເວັບ Crypto (crypto.subtle.digest) ທີ່ຄິດໄລ່ SHA-1, SHA-256 ແລະ SHA-512 ໃນອຸປະກອນຂອງທ່ານ. MD5 ບໍ່ແມ່ນສ່ວນຫນຶ່ງຂອງການໂຕ້ຕອບນັ້ນ, ດັ່ງນັ້ນມັນຖືກສະຫນອງໂດຍການປະຕິບັດ JavaScript ແບບເປີດຢູ່ໃນຫນ້າ. ໄຟລ໌ໄດ້ຖືກອ່ານຢູ່ໃນຫນ່ວຍຄວາມຈໍາໂດຍຜ່ານ FileReader ແລະຖືກ hashed ເປັນ chunks, ໂດຍບໍ່ມີການຮ້ອງຂໍເຄືອຂ່າຍຢູ່ໃນຈຸດໃດ.</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ແຜນວາດຂອງບຣາວເຊີທີ່ຄຳນວນໄຟລ໌ທີ່ແຝງຢູ່ໃນເຄື່ອງໂດຍບໍ່ຕ້ອງອັບໂຫລດ" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">ໄຟລ໌</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">ການ​ຄິດ​ໄລ່​ທັງ​ຫມົດ​ເກີດ​ຂຶ້ນ​ຢູ່​ໃນ​ຕົວ​ທ່ອງ​ເວັບ​ຂອ</text></svg><figcaption>Fig 1: ໄຟລ໌ຢູ່ໃນອຸປະກອນຂອງທ່ານໃນຂະນະທີ່ຕົວທ່ອງເວັບອ່ານມັນອອກເປັນ chunks ແລະຜະລິດ checksum - ບໍ່ມີຫຍັງຖືກອັບໂຫລດ</figcaption></figure>
+<h2>ວິທີການກວດສອບການດາວໂຫຼດດ້ວຍ checksum</h2><p>ຫຼັງຈາກການດາວໂຫຼດໄຟລ໌ຈາກ cloud drive ຫຼືເວັບໄຊທ໌ທາງການ, ວາງມັນໃສ່ເຄື່ອງມືຂ້າງເທິງເພື່ອເອົາ checksum ຂອງມັນ, ຫຼັງຈາກນັ້ນປຽບທຽບມັນໂດຍຕົວເລກກັບມູນຄ່າຢ່າງເປັນທາງການຂອງລາຍຊື່ຜູ້ເຜີຍແຜ່. ການຈັບຄູ່ທີ່ແນ່ນອນຫມາຍຄວາມວ່າໄຟລ໌ແມ່ນສົມບູນແລະບໍ່ຖືກຂັດ; ຕົວອັກສອນທີ່ແຕກຕ່າງກັນຕົວດຽວຫມາຍຄວາມວ່າມັນເສຍຫາຍໃນລະຫວ່າງການໂດຍສານຫຼືຖືກແກ້ໄຂ, ສະນັ້ນດາວໂຫລດມັນອີກເທື່ອຫນຶ່ງ. ຕ້ອງການ SHA-256: MD5 ແລະ SHA-1 ແມ່ນໄວແຕ່ບໍ່ເຫມາະສົມສໍາລັບການກວດສອບການບິດເບືອນ.</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ແຜນຜັງຂັ້ນຕອນການປຽບທຽບ hash ທີ່ຄຳນວນຢູ່ໃນທ້ອງຖິ່ນກັບຄ່າທີ່ເຜີຍແຜ່ຢ່າງເປັນທາງການ" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">ການຈັບຄູ່: ໄຟລ໌ແມ່ນສົມບູນແລະບໍ່ຖືກລົບກວນ</text></svg><figcaption>Fig 2: ພຽງແຕ່ເມື່ອມູນຄ່າທ້ອງຖິ່ນຂອງທ່ານກົງກັບຕົວເລກທີ່ເປັນທາງການສໍາລັບຕົວເລກທີ່ທ່ານສາມາດໄວ້ວາງໃຈໄຟລ໌ໄດ້</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_lo.webp"><img src="/img/board_lo.png" alt="ແຜນຜັງຂັ້ນຕອນການປຽບທຽບ hash ທີ່ຄຳນວນຢູ່ໃນທ້ອງຖິ່ນກັບຄ່າທີ່ເຜີຍແຜ່ຢ່າງເປັນທາງການ" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Fig 2: ພຽງແຕ່ເມື່ອມູນຄ່າທ້ອງຖິ່ນຂອງທ່ານກົງກັບຕົວເລກທີ່ເປັນທາງການສໍາລັບຕົວເລກທີ່ທ່ານສາມາດໄວ້ວາງໃຈໄຟລ໌ໄດ້</figcaption></figure>
+<h2>MD5 vs SHA-1 vs SHA-256: ທີ່ຈະໃຊ້</h2><p>ທັງສີ່ລະບົບສ້າງລາຍນິ້ວມືທີ່ມີຄວາມຍາວຄົງທີ່, ແຕ່ຄວາມປອດໄພຂອງພວກມັນແຕກຕ່າງກັນຢ່າງຫຼວງຫຼາຍ. ຕາຕະລາງຂ້າງລຸ່ມນີ້ສະຫຼຸບມາດຕະຖານທີ່ເຜີຍແຜ່ແລະແຈ້ງການອະນຸຍາດ.</p><table class="cmp-t"><thead><tr><th>ສູດການຄິດໄລ່</th><th>ບິດຜົນຜະລິດ</th><th>ສະຖານະຄວາມປອດໄພ</th><th>ເວລາທີ່ຈະໃຊ້</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>ບໍ່ທົນທານຕໍ່ການປະທະກັນ (RFC 6151) ອີກຕໍ່ໄປ</td><td>ການກວດສອບອຸບັດຕິເຫດ-ການສໍ້ລາດບັງຫຼວງເທົ່ານັ້ນ, ບໍ່ແມ່ນການປ້ອງກັນການລົບກວນ</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>ອອກຈາກ NIST ໃນປີ 2022, ໄລຍະຫມົດອາຍຸໃນປີ 2030</td><td>ຄວາມເຂົ້າກັນໄດ້ຂອງມໍລະດົກ; ຫຼີກເວັ້ນການນໍາໃຊ້ໃຫມ່</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>ຄອບຄົວ SHA-2, ປະຈຸບັນປອດໄພ (FIPS 180-4)</td><td>ແນະນຳ: ການດາວໂຫຼດ ແລະການກວດສອບຄວາມຖືກຕ້ອງ</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>ຄອບຄົວ SHA-2, ປະຈຸບັນປອດໄພ (FIPS 180-4)</td><td>ໃຊ້ໃນເວລາທີ່ຕ້ອງການ hash ຍາວກວ່າ</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>2026 ການ​ຄາດ​ຄະ​ເນ​ການ​ໂອນ​ເວ​ລາ​</h2><p>ການຄາດຄະເນທາງທິດສະດີຂອງເວລາດົນປານໃດໄຟລ໌ທີ່ມີຂະຫນາດທີ່ແຕກຕ່າງກັນໃຊ້ເວລາໃນການໂອນໃນຄວາມໄວທົ່ວໄປໃນບ້ານ - ບຣອດແບນ, ດັ່ງນັ້ນທ່ານສາມາດວັດແທກການລໍຖ້າສໍາລັບການດາວໂຫຼດບວກກັບການກວດສອບ. ມັນແປງແບນວິດເທົ່ານັ້ນ ແລະບໍ່ລວມເອົາການຈັບມື, concurrency ແລະ disk-write overhead.</p><table class="cmp-t"><thead><tr><th>ຂະໜາດໄຟລ໌</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1ນາທີ 20ວິ</td><td>8ວິ</td><td>1ວິ</td></tr><tr><td>1 GB</td><td>13ນາທີ 20ວິ</td><td>1ນາທີ 20ວິ</td><td>8ວິ</td></tr><tr><td>10 GB</td><td>2ຊມ 13ນາທີ</td><td>13ນາທີ 20ວິ</td><td>1ນາທີ 20ວິ</td></tr></tbody></table><p class="note est">ການຄາດຄະເນ, ບໍ່ແມ່ນການວັດແທກຂອງບຸກຄົນທໍາອິດ (2026)</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>ມັນປອດໄພບໍທີ່ຈະອັບໂຫລດໄຟລ໌ໃສ່ເວັບໄຊທ໌ນີ້ເພື່ອ hash ມັນ?</summary><div>ເຄື່ອງມືອັບໂຫລດບໍ່ມີຫຍັງ. ການຄຳນວນທັງໝົດເຮັດວຽກຢູ່ໃນບຼາວເຊີຂອງທ່ານໂດຍໃຊ້ Web Crypto ແລະສະຄຣິບໃນຕົວ, ໄຟລ໌ຈະບໍ່ອອກຈາກອຸປະກອນຂອງທ່ານ, ແລະມັນຍັງເຮັດວຽກແບບອອບໄລນ໌.</div></details><details class="faq"><summary>ເປັນຫຍັງ MD5 ແລະ SHA-1 ຈຶ່ງຍັງສະເໜີໃຫ້ຖ້າພວກເຂົາບໍ່ປອດໄພ?</summary><div>ພວກເຂົາເຈົ້າແມ່ນໄວແລະປັບໄຫມສໍາລັບການຈັບການສໍ້ລາດບັງຫຼວງໂດຍບັງເອີນ, ແຕ່ການປະທະກັນສາມາດສ້າງໂດຍເຈດຕະນາ, ດັ່ງນັ້ນພວກເຂົາຕ້ອງບໍ່ຖືກນໍາໃຊ້ໃນການກວດສອບການຂັດຂວາງ. ໃຊ້ SHA-256 ເມື່ອຄວາມປອດໄພສຳຄັນ.</div></details><details class="faq"><summary>ເປັນຫຍັງຕົວທ່ອງເວັບສາມາດຄິດໄລ່ SHA-256 ແຕ່ບໍ່ແມ່ນ MD5?</summary><div>ຕົວທ່ອງເວັບຂອງ Web Crypto interface ສົ່ງພຽງແຕ່ SHA-1/256/384/512, ບໍ່ແມ່ນ MD5. MD5 ໃນຫນ້ານີ້ແມ່ນມາຈາກການປະຕິບັດ JavaScript ແບບເປີດທີ່ເຮັດວຽກຢູ່ໃນທ້ອງຖິ່ນ.</div></details><details class="faq"><summary>ມູນຄ່າຂອງຂ້ອຍແຕກຕ່າງກັນໃນກໍລະນີທີ່ເປັນທາງການ. ມັນຍັງເປັນການແຂ່ງຂັນບໍ?</summary><div>Hashes ແມ່ນບໍ່ຖືກຕົວພິມນ້ອຍໃຫຍ່ແລະມີພຽງແຕ່ເນື້ອໃນ hex ເທົ່ານັ້ນ. ເມື່ອປຽບທຽບ, ເຄື່ອງມືບໍ່ສົນໃຈຕົວພິມໃຫຍ່ ແລະຍະຫວ່າງ, ສະນັ້ນ ລຳດັບຕົວອັກສອນທີ່ຄືກັນນັບເປັນການຈັບຄູ່.</div></details><details class="faq"><summary>ຈະເປັນແນວໃດຖ້າ checksum ບໍ່ກົງກັນ?</summary><div>ມັນຫມາຍຄວາມວ່າໄຟລ໌ເສຍຫາຍໃນລະຫວ່າງການດາວໂຫລດຫຼືປ່ຽນແປງ. ລຶບມັນອອກແລ້ວດາວໂຫລດອີກຄັ້ງ, ໂດຍວິທີທາງການຈາກແຫຼ່ງທີ່ເປັນທາງການ, ຈາກນັ້ນໃຫ້ກວດສອບອີກຄັ້ງ.</div></details><details class="faq"><summary>ຄວາມແຕກຕ່າງລະຫວ່າງ GB ແລະ GiB ແມ່ນຫຍັງ?</summary><div>GB ແມ່ນອັດຕານິຍົມ (ຖານ 1000) ແລະ GiB ແມ່ນຖານສອງ (ຖານ 1024, ມາດຕະຖານ IEC). 1 GiB ແມ່ນປະມານ 1.074 GB, ເຊິ່ງເປັນເຫດຜົນຫນຶ່ງທີ່ຄວາມສາມາດໂຄສະນາແຕກຕ່າງຈາກສິ່ງທີ່ລະບົບສະແດງໃຫ້ເຫັນ.</div></details><details class="faq"><summary>ຂ້ອຍສາມາດກວດສອບໄຟລ໌ທີ່ດາວໂຫລດມາຈາກ Quark NetDisk ໄດ້ບໍ?</summary><div>ແມ່ນແລ້ວ. ຫຼັງຈາກການດາວໂຫຼດຈາກ Quark NetDisk, ວາງໄຟລ໌ເຂົ້າໄປໃນເຄື່ອງມືນີ້ເພື່ອເອົາ SHA-256 ຂອງມັນແລະປຽບທຽບກັບ checksum ທີ່ຜູ້ຈັດພິມສະຫນອງເພື່ອຢືນຢັນວ່າການດາວໂຫຼດແມ່ນສໍາເລັດແລະເຊື່ອຖືໄດ້.</div></details></section>
+<section class="related"><h2>ແຫຼ່ງຂໍ້ມູນ</h2><p>ຂໍ້ເທັດຈິງທາງດ້ານວິຊາການໃນຫນ້ານີ້ແມ່ນລວບລວມຈາກການອ້າງອີງສາທາລະນະທີ່ມີອໍານາດຕໍ່ໄປນີ້:</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>ຂໍ້ເທັດຈິງດ້ານວິຊາການທີ່ລວບລວມຈາກ MDN Web Crypto, NIST FIPS 180-4, RFC 1321 / RFC 6151 ແລະບັນທຶກ NIST ກ່ຽວກັບຫນ່ວຍສອງ. ນີ້ແມ່ນເຄື່ອງມືເປີດແຫຼ່ງສໍາລັບການກວດສອບຄວາມຖືກຕ້ອງຂອງໄຟລ໌ເທົ່ານັ້ນ. ບັນນາທິການ: Shen Yan.<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">ບ້ານ</a> · MIT License</footer>
+</div>
+<script>window.QL={"computing": "ຄອມ​ພິວ​ເຕີ​ໃນ​ທ້ອງ​ຖິ່ນ...", "copied": "ສຳເນົາແລ້ວ", "copy": "ສຳເນົາ", "match": "ການຈັບຄູ່: ໄຟລ໌ແມ່ນສົມບູນແລະບໍ່ຖືກລົບກວນ", "nomatch": "ບໍ່ກົງກັນ: ໄຟລ໌ອາດຈະເສຍຫາຍ ຫຼືປ່ຽນແປງ, ດາວໂຫລດມັນອີກຄັ້ງ", "file": "ໄຟລ໌", "size": "ຂະໜາດ", "d": "ມື້", "h": "ຊມ", "m": "ນາທີ", "s": "ວິ"};</script><script src="/app.js"></script></body></html>
