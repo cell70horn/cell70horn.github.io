@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pemeriksa Hash File - MD5/SHA-1/SHA-256 di browser Anda, tanpa unggahan</title>
+<meta name="description" content="Hitung checksum file MD5, SHA-1, SHA-256 dan SHA-512 secara lokal di browser Anda. File tidak pernah diunggah; semuanya berjalan di sisi klien. Termasuk konverter waktu transfer dan unit data untuk memverifikasi unduhan dari Quark NetDisk dan cloud lainnya.">
+<meta name="author" content="沈砚">
+<link rel="canonical" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Pemeriksa Hash File - MD5/SHA-1/SHA-256 di browser Anda, tanpa unggahan",
+   "url": "https://cell70horn.github.io/id/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "id",
+   "description": "Hitung checksum file MD5, SHA-1, SHA-256 dan SHA-512 secara lokal di browser Anda. File tidak pernah diunggah; semuanya berjalan di sisi klien. Termasuk konverter waktu transfer dan unit data untuk memverifikasi unduhan dari Quark NetDisk dan cloud lainnya.",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "id",
+   "url": "https://cell70horn.github.io/id/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Apakah aman mengunggah file ke situs ini untuk melakukan hashing?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Alat ini tidak mengunggah apa pun. Semua komputasi berjalan secara lokal di browser Anda menggunakan Web Crypto dan skrip bawaan, file tidak pernah meninggalkan perangkat Anda, dan bahkan bekerja secara offline."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Mengapa MD5 dan SHA-1 masih ditawarkan jika tidak aman?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Mereka cepat dan baik untuk menangkap korupsi yang tidak disengaja, namun tabrakan dapat dibuat dengan sengaja, sehingga tidak boleh digunakan untuk pemeriksaan kerusakan. Gunakan SHA-256 jika masalah keamanan penting."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Mengapa browser dapat menghitung SHA-256 tetapi tidak dapat menghitung MD5?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Antarmuka Web Crypto browser hanya mengirimkan SHA-1/256/384/512, bukan MD5. MD5 di halaman ini berasal dari implementasi JavaScript sumber terbuka yang juga berjalan secara lokal."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Nilai saya berbeda dengan nilai resmi. Apakah masih cocok?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hash tidak membedakan huruf besar-kecil dan hanya konten hex yang penting. Saat membandingkan, alat ini mengabaikan huruf besar dan spasi, sehingga urutan karakter yang identik dihitung sebagai kecocokan."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Bagaimana jika checksumnya tidak cocok?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Artinya file tersebut rusak saat diunduh atau diubah. Hapus dan unduh lagi, sebaiknya dari sumber resmi, lalu verifikasi sekali lagi."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Apa perbedaan antara GB dan GiB?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GB adalah desimal (basis 1000) dan GiB adalah biner (basis 1024, standar IEC). 1 GiB sama dengan 1,074 GB, yang merupakan salah satu alasan mengapa kapasitas yang diiklankan berbeda dari yang ditampilkan sistem."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Bisakah saya memverifikasi file yang diunduh dari Quark NetDisk?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ya. Setelah mengunduh dari Quark NetDisk, masukkan file ke alat ini untuk mendapatkan SHA-256-nya dan bandingkan dengan checksum yang disediakan penerbit untuk mengonfirmasi bahwa unduhan telah selesai dan dapat dipercaya."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Bahasa: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <strong>Bahasa Indonesia</strong> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ລາວ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>Pemeriksa Hash File (berjalan secara lokal, tidak ada unggahan)</h1>
+<p class="lead">Masukkan file dan browser Anda menghitung checksum MD5 / SHA-1 / SHA-256 / SHA-512 langsung di perangkat Anda, sehingga Anda dapat mengonfirmasi bahwa unduhan telah selesai dan tidak rusak atau diubah. Semuanya berjalan secara lokal: file tidak pernah meninggalkan perangkat Anda dan tidak pernah dikirim ke server mana pun.</p>
+<p class="cta">Hal ini sangat berguna bagi installer yang diunduh dari drive cloud: ambil checksum yang diterbitkan halaman resmi dan bandingkan dengan nilai yang dihitung di sini. Jika Anda perlu mengunduh klien lagi, kunjungi <a href="https://quarknetdisk.com/download/">Halaman unduh Quark NetDisk PC</a> untuk mendapatkan penginstal.</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_id.webp"><img src="/img/cover_id.png" alt="Diagram browser menghitung hash file secara lokal tanpa mengunggah" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Gambar 1: file tetap berada di perangkat Anda saat browser membacanya dalam beberapa bagian dan menghasilkan checksum - tidak ada yang diunggah</figcaption></figure>
+<section class="tool" id="hash"><h2>1. Kalkulator hash file</h2><p>Pilih atau seret file dan keempat checksum dihitung secara otomatis. Anda juga dapat menempelkan teks ke hash secara langsung.</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">Pilih file</button><div class="dh">atau letakkan file di sini - file diproses di perangkat Anda, tidak pernah diunggah</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">Menyalin</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">Menyalin</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">Menyalin</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">Menyalin</button></div></div><div class="cmp"><label>Tempel checksum resmi untuk membandingkan secara otomatis:</label><input type="text" id="exp" placeholder="Tempelkan hash yang dipublikasikan di sini" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>Atau tempel teks ke hash:</summary><textarea id="txt" rows="3" placeholder="Tempelkan teks yang ingin Anda hash di sini"></textarea><button type="button" id="htxt" class="btn">Teks hash</button></details><p class="note">Semua penghitungan dilakukan secara lokal di browser Anda - file tidak pernah diunggah.</p></section><section class="tool" id="conv"><h2>2. Waktu transfer dan konverter unit data</h2><p>Perkirakan berapa lama waktu yang dibutuhkan file untuk ditransfer pada kecepatan tertentu, dan konversi antara satuan desimal (GB) dan biner (GiB).</p><div class="cv"><div class="cvg"><label>Ukuran data</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>Kecepatan jaringan</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>Perkiraan waktu perpindahan</span><b id="ttime">—</b></div><div class="cvtab"><span>Konversi unit data</span><div id="units" class="units"></div></div><p class="note">Kecepatan sebenarnya bergantung pada server, rute, dan konkurensi, jadi ini hanyalah perkiraan teoretis saja.</p></section>
+<h2>Cara kerja hashing lokal</h2><p>Browser modern mengirimkan antarmuka Web Crypto (crypto.subtle.digest) yang menghitung SHA-1, SHA-256, dan SHA-512 pada perangkat Anda. MD5 bukan bagian dari antarmuka tersebut, sehingga disediakan oleh implementasi JavaScript sumber terbuka yang ada di dalam halaman. File dibaca di memori melalui FileReader dan di-hash dalam beberapa bagian, tanpa permintaan jaringan kapan pun.</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram browser menghitung hash file secara lokal tanpa mengunggah" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">Mengajukan</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">Semua penghitungan dilakukan secara lokal di browser A</text></svg><figcaption>Gambar 1: file tetap berada di perangkat Anda saat browser membacanya dalam beberapa bagian dan menghasilkan checksum - tidak ada yang diunggah</figcaption></figure>
+<h2>Cara memverifikasi unduhan dengan checksum</h2><p>Setelah mengunduh file dari cloud drive atau situs resmi, masukkan file tersebut ke alat di atas untuk mendapatkan checksumnya, lalu bandingkan digit demi digit dengan nilai resmi yang dicantumkan penerbit. Pencocokan persis berarti file tersebut lengkap dan tidak diubah; satu karakter yang berbeda berarti rusak saat transit atau dimodifikasi, jadi unduh lagi. Lebih suka SHA-256: MD5 dan SHA-1 cepat tetapi tidak lagi cocok untuk pemeriksaan kerusakan.</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram alur membandingkan hash yang dihitung secara lokal dengan nilai resmi yang dipublikasikan" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">Cocok : file sudah lengkap dan belum diu</text></svg><figcaption>Gambar 2: hanya ketika nilai lokal Anda cocok dengan satu digit digit resmi, Anda dapat mempercayai file tersebut</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_id.webp"><img src="/img/board_id.png" alt="Diagram alur membandingkan hash yang dihitung secara lokal dengan nilai resmi yang dipublikasikan" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Gambar 2: hanya ketika nilai lokal Anda cocok dengan satu digit digit resmi, Anda dapat mempercayai file tersebut</figcaption></figure>
+<h2>MD5 vs SHA-1 vs SHA-256: mana yang akan digunakan</h2><p>Keempat algoritma menghasilkan sidik jari dengan panjang tetap, namun keamanannya sangat berbeda. Tabel di bawah ini merangkum standar yang dipublikasikan dan pemberitahuan resmi.</p><table class="cmp-t"><thead><tr><th>Algoritma</th><th>Bit keluaran</th><th>Status keamanan</th><th>Kapan harus digunakan</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>Tidak lagi tahan benturan (RFC 6151)</td><td>Hanya pemeriksaan korupsi yang tidak disengaja, bukan perlindungan kerusakan</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>Dipensiunkan oleh NIST pada tahun 2022, penghentian penuh pada tahun 2030</td><td>Kompatibilitas warisan; hindari untuk penggunaan baru</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>Keluarga SHA-2, saat ini aman (FIPS 180-4)</td><td>Direkomendasikan: pengunduhan dan verifikasi integritas</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>Keluarga SHA-2, saat ini aman (FIPS 180-4)</td><td>Gunakan ketika diperlukan hash yang lebih panjang</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>Perkiraan waktu transfer tahun 2026</h2><p>Perkiraan teoretis tentang berapa lama waktu yang diperlukan untuk mentransfer file dengan ukuran berbeda pada kecepatan broadband rumahan, sehingga Anda dapat mengukur waktu tunggu untuk pengunduhan plus verifikasi. Ini hanya mengkonversi bandwidth dan tidak termasuk jabat tangan, konkurensi, dan overhead penulisan disk.</p><table class="cmp-t"><thead><tr><th>Ukuran berkas</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1mnt 20dtk</td><td>8dtk</td><td>1dtk</td></tr><tr><td>1 GB</td><td>13mnt 20dtk</td><td>1mnt 20dtk</td><td>8dtk</td></tr><tr><td>10 GB</td><td>2j 13mnt</td><td>13mnt 20dtk</td><td>1mnt 20dtk</td></tr></tbody></table><p class="note est">Estimasi, bukan pengukuran pihak pertama (2026)</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>Apakah aman mengunggah file ke situs ini untuk melakukan hashing?</summary><div>Alat ini tidak mengunggah apa pun. Semua komputasi berjalan secara lokal di browser Anda menggunakan Web Crypto dan skrip bawaan, file tidak pernah meninggalkan perangkat Anda, dan bahkan bekerja secara offline.</div></details><details class="faq"><summary>Mengapa MD5 dan SHA-1 masih ditawarkan jika tidak aman?</summary><div>Mereka cepat dan baik untuk menangkap korupsi yang tidak disengaja, namun tabrakan dapat dibuat dengan sengaja, sehingga tidak boleh digunakan untuk pemeriksaan kerusakan. Gunakan SHA-256 jika masalah keamanan penting.</div></details><details class="faq"><summary>Mengapa browser dapat menghitung SHA-256 tetapi tidak dapat menghitung MD5?</summary><div>Antarmuka Web Crypto browser hanya mengirimkan SHA-1/256/384/512, bukan MD5. MD5 di halaman ini berasal dari implementasi JavaScript sumber terbuka yang juga berjalan secara lokal.</div></details><details class="faq"><summary>Nilai saya berbeda dengan nilai resmi. Apakah masih cocok?</summary><div>Hash tidak membedakan huruf besar-kecil dan hanya konten hex yang penting. Saat membandingkan, alat ini mengabaikan huruf besar dan spasi, sehingga urutan karakter yang identik dihitung sebagai kecocokan.</div></details><details class="faq"><summary>Bagaimana jika checksumnya tidak cocok?</summary><div>Artinya file tersebut rusak saat diunduh atau diubah. Hapus dan unduh lagi, sebaiknya dari sumber resmi, lalu verifikasi sekali lagi.</div></details><details class="faq"><summary>Apa perbedaan antara GB dan GiB?</summary><div>GB adalah desimal (basis 1000) dan GiB adalah biner (basis 1024, standar IEC). 1 GiB sama dengan 1,074 GB, yang merupakan salah satu alasan mengapa kapasitas yang diiklankan berbeda dari yang ditampilkan sistem.</div></details><details class="faq"><summary>Bisakah saya memverifikasi file yang diunduh dari Quark NetDisk?</summary><div>Ya. Setelah mengunduh dari Quark NetDisk, masukkan file ke alat ini untuk mendapatkan SHA-256-nya dan bandingkan dengan checksum yang disediakan penerbit untuk mengonfirmasi bahwa unduhan telah selesai dan dapat dipercaya.</div></details></section>
+<section class="related"><h2>Sumber</h2><p>Fakta teknis di halaman ini dikumpulkan dari referensi publik resmi berikut:</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>Fakta teknis dikumpulkan dari MDN Web Crypto, NIST FIPS 180-4, RFC 1321 / RFC 6151 dan catatan NIST pada unit biner. Ini adalah alat sumber terbuka untuk pemeriksaan integritas file saja. Editor: Shen Yan.<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">Rumah</a> · MIT License</footer>
+</div>
+<script>window.QL={"computing": "Menghitung secara lokal...", "copied": "Disalin", "copy": "Menyalin", "match": "Cocok : file sudah lengkap dan belum diutak-atik", "nomatch": "Tidak cocok: file mungkin rusak atau diubah, unduh lagi", "file": "Mengajukan", "size": "Ukuran", "d": "h", "h": "j", "m": "mnt", "s": "dtk"};</script><script src="/app.js"></script></body></html>
