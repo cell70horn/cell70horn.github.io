@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cell70horn.github.io/sitemap.xml
