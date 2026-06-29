@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="my"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>File Hash Checker - MD5/SHA-1/SHA-256 သင့်ဘရောက်ဆာတွင် အပ်လုဒ်လုပ်ခြင်း မရှိပါ။</title>
+<meta name="description" content="သင့်ဘရောက်ဆာတွင် ဖိုင်တစ်ခု၏ MD5၊ SHA-1၊ SHA-256 နှင့် SHA-512 checksum ကို စက်အတွင်းတွက်ချက်ပါ။ ဖိုင်များကို ဘယ်တော့မှ အပ်လုဒ်မလုပ်ပါ။ အရာအားလုံးသည် client-side လည်ပတ်သည်။ Quark NetDisk နှင့် အခြား clouds များမှ ဒေါင်းလုဒ်များကို အတည်ပြုရန် လွှဲပြောင်းချိန်နှင့် ဒေတာယူနစ်ပြောင်းသည့်ကိရိယာ ပါဝင်သည်။">
+<meta name="author" content="沈砚">
+<link rel="canonical" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="zh-Hans" href="https://cell70horn.github.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cell70horn.github.io/zh-tw/">
+<link rel="alternate" hreflang="en" href="https://cell70horn.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://cell70horn.github.io/ja/">
+<link rel="alternate" hreflang="id" href="https://cell70horn.github.io/id/">
+<link rel="alternate" hreflang="th" href="https://cell70horn.github.io/th/">
+<link rel="alternate" hreflang="vi" href="https://cell70horn.github.io/vi/">
+<link rel="alternate" hreflang="ms" href="https://cell70horn.github.io/ms/">
+<link rel="alternate" hreflang="fil" href="https://cell70horn.github.io/fil/">
+<link rel="alternate" hreflang="km" href="https://cell70horn.github.io/km/">
+<link rel="alternate" hreflang="lo" href="https://cell70horn.github.io/lo/">
+<link rel="alternate" hreflang="my" href="https://cell70horn.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://cell70horn.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "File Hash Checker - MD5/SHA-1/SHA-256 သင့်ဘရောက်ဆာတွင် အပ်လုဒ်လုပ်ခြင်း မရှိပါ။",
+   "url": "https://cell70horn.github.io/my/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "browserRequirements": "Requires JavaScript",
+   "inLanguage": "my",
+   "description": "သင့်ဘရောက်ဆာတွင် ဖိုင်တစ်ခု၏ MD5၊ SHA-1၊ SHA-256 နှင့် SHA-512 checksum ကို စက်အတွင်းတွက်ချက်ပါ။ ဖိုင်များကို ဘယ်တော့မှ အပ်လုဒ်မလုပ်ပါ။ အရာအားလုံးသည် client-side လည်ပတ်သည်။ Quark NetDisk နှင့် အခြား clouds များမှ ဒေါင်းလုဒ်များကို အတည်ပြုရန် လွှဲပြောင်းချိန်နှင့် ဒေတာယူနစ်ပြောင်းသည့်ကိရိယာ ပါဝင်သည်။",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "沈砚",
+    "url": "https://cell70horn.github.io/about-shenyan/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "my",
+   "url": "https://cell70horn.github.io/my/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "ဖိုင်တစ်ခုကို hash ရန် ဤဆိုက်သို့ အပ်လုဒ်လုပ်ခြင်းသည် ဘေးကင်းပါသလား။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ကိရိယာသည် ဘာမှမတင်ပါ။ တွက်ချက်မှုအားလုံးသည် Web Crypto နှင့် built-in script ကို အသုံးပြု၍ သင့်ဘရောက်ဆာတွင် စက်တွင်းအလုပ်လုပ်သည်၊ ဖိုင်သည် သင့်စက်မှ ဘယ်သောအခါမှ မထွက်ဘဲ၊ ၎င်းသည် အော့ဖ်လိုင်းတွင်ပင် အလုပ်လုပ်ပါသည်။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "မလုံခြုံပါက MD5 နှင့် SHA-1 ကို အဘယ်ကြောင့် ကမ်းလှမ်းနေသေးသနည်း။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "၎င်းတို့သည် မတော်တဆ အကျင့်ပျက်ခြစားမှုကို ဖမ်းမိခြင်းအတွက် လျင်မြန်ပြီး ကောင်းမွန်သော်လည်း တိုက်မိခြင်းများကို တမင်ဖန်တီးထားသောကြောင့် ၎င်းတို့ကို ခိုးယူစစ်ဆေးခြင်းအတွက် အသုံးမပြုရပါ။ လုံခြုံရေးအရေးကြီးသောအခါ SHA-256 ကိုသုံးပါ။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ဘရောက်ဆာသည် SHA-256 ကို အဘယ်ကြောင့် တွက်ချက်နိုင်သော်လည်း MD5 မဟုတ်ပါ။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ဘရောက်ဆာ Web Crypto interface သည် MD5 မဟုတ်ဘဲ SHA-1/256/384/512 ကိုသာ တင်ပို့သည်။ ဤစာမျက်နှာရှိ MD5 သည် ပြည်တွင်း၌လည်း လုပ်ဆောင်သည့် open-source JavaScript အကောင်အထည်ဖော်မှုမှ လာပါသည်။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "ကျွန်ုပ်၏တန်ဖိုးသည် တရားဝင်တန်ဖိုးနှင့် ကွာခြားပါသည်။ တိုက်ဆိုင်နေသေးလား။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hashes များသည် အသေးအမွှားကို အာရုံမခံဘဲ hex ပါဝင်မှုသာ အရေးကြီးသည်။ နှိုင်းယှဉ်သောအခါ၊ ကိရိယာသည် စာလုံးအသေးနှင့် space များကို လျစ်လျူရှုထားသောကြောင့် ထပ်တူထပ်မျှသော ဇာတ်ကောင်အစီအစဥ်ကို ကိုက်ညီမှုတစ်ခုအဖြစ် တွက်သည်။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "checksum က မကိုက်ညီရင် ဘယ်လိုလုပ်မလဲ။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ဒေါင်းလုဒ်လုပ်နေစဉ် သို့မဟုတ် ပြောင်းလဲနေချိန်တွင် ဖိုင်ပျက်စီးသွားသည်ဟု ဆိုလိုသည်။ ၎င်းကိုဖျက်ပြီး ထပ်မံဒေါင်းလုဒ်လုပ်ပါ၊ အကောင်းဆုံးအားဖြင့် တရားဝင်အရင်းအမြစ်မှနေ၍ နောက်တစ်ကြိမ်စစ်ဆေးပါ။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "GB နှင့် GiB ကွာခြားချက်ကဘာလဲ။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GB သည် ဒဿမ (အခြေခံ 1000) ဖြစ်ပြီး GiB သည် ဒွိ (အခြေခံ 1024၊ IEC စံနှုန်း) ဖြစ်သည်။ 1 GiB သည် 1.074 GB ခန့်ဖြစ်သည်၊ ယင်းသည် ကြော်ငြာထားသောစွမ်းရည်သည် စနစ်ပြသသည့်အရာနှင့် ကွဲပြားသည့်အကြောင်းရင်းတစ်ခုဖြစ်သည်။"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Quark NetDisk မှဒေါင်းလုဒ်လုပ်ထားသောဖိုင်များကို အတည်ပြုနိုင်ပါသလား။",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ဟုတ်ကဲ့။ Quark NetDisk မှ ဒေါင်းလုဒ်လုပ်ပြီးနောက်၊ ၎င်း၏ SHA-256 ကို ရယူရန် ဤကိရိယာထဲသို့ ဖိုင်ကို ချပေးပြီး ဒေါင်းလုဒ်သည် ပြီးပြည့်စုံပြီး ယုံကြည်စိတ်ချရကြောင်း ထုတ်ဝေသူမှ ပေးထားသည့် checksum နှင့် နှိုင်းယှဉ်ပါ။"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">ဘာသာစကား: <a href="/">简体中文</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/th/">ไทย</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fil/">Filipino</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/lo/">ລາວ</a> · <strong>မြန်မာ</strong></nav>
+<h1>File Hash Checker (စက်တွင်းအလုပ်လုပ်သည်၊ အပ်လုဒ်မလုပ်ပါ)</h1>
+<p class="lead">ဖိုင်တစ်ခုထဲထည့်လိုက်ပြီး သင့်ဘရောက်ဆာသည် ၎င်း၏ MD5/SHA-1/SHA-256/SHA-512 checksum ကို သင့်စက်ပစ္စည်းပေါ်တွင် မှန်ကန်စွာတွက်ချက်ပေးသည်၊ ထို့ကြောင့် သင်သည် ဒေါင်းလုဒ်တစ်ခုပြီးမြောက်ပြီး ပျက်စီးသွားခြင်း သို့မဟုတ် ဆော့ကစားထားခြင်းမရှိကြောင်း အတည်ပြုနိုင်ပါသည်။ အရာအားလုံးသည် စက်တွင်းတွင် လုပ်ဆောင်သည်- ဖိုင်သည် သင့်စက်မှ ဘယ်သောအခါမှ ထွက်ခွာမသွားဘဲ မည်သည့်ဆာဗာသို့မျှ ပေးပို့မည်မဟုတ်ပါ။</p>
+<p class="cta">၎င်းသည် cloud drive မှဒေါင်းလုဒ်လုပ်ထားသော installers များအတွက် အထူးအဆင်ပြေပါသည်- တရားဝင်စာမျက်နှာထုတ်ဝေသည့် checksum ကိုယူပြီး ဤနေရာတွင်တွက်ချက်ထားသောတန်ဖိုးနှင့်နှိုင်းယှဉ်ပါ။ အကယ်၍ သင်သည် client ကို ထပ်မံဒေါင်းလုဒ်လုပ်ရန် လိုအပ်ပါက၊ အဆိုပါသို့သွားပါ။ <a href="https://quarknetdisk.com/download/">Quark NetDisk PC ဒေါင်းလုဒ်စာမျက်နှာ</a> installer ကိုရယူရန်။</p>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_my.webp"><img src="/img/cover_my.png" alt="အပ်လုဒ်မတင်ဘဲ စက်တွင်းရှိ ဖိုင် hash ကိုတွက်ချက်သည့် ဘရောက်ဆာတစ်ခု၏ ပုံကြမ်း" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>ပုံ 1- ဘရောက်ဆာက ၎င်းကို အပိုင်းလိုက်ဖတ်ပြီး checksum ကိုထုတ်ပေးနေချိန်တွင် ဖိုင်သည် သင့်စက်ပစ္စည်းပေါ်တွင်ရှိနေသည် - မည်သည့်အရာကိုမျှ အပ်လုဒ်မလုပ်ပါ။</figcaption></figure>
+<section class="tool" id="hash"><h2>1. ဖိုင် hash ဂဏန်းတွက်စက်</h2><p>ဖိုင်တစ်ခုတွင် ရွေးပါ သို့မဟုတ် ဆွဲယူကာ checksum လေးခုစလုံးကို အလိုအလျောက်တွက်ချက်ပါသည်။ စာသားကို hash သို့ တိုက်ရိုက်ကူးထည့်နိုင်သည်။</p><div id="drop" class="drop"><input type="file" id="file" hidden><button type="button" id="pick" class="btn">ဖိုင်တစ်ခုကို ရွေးပါ။</button><div class="dh">သို့မဟုတ် ဖိုင်တစ်ခုကို ဤနေရာတွင် ချလိုက်ပါ - ၎င်းကို သင့်စက်ပေါ်တွင် လုပ်ဆောင်ပြီး မည်သည့်အခါမျှ အပ်လုဒ်မလုပ်ပါ။</div></div><div id="meta" class="meta" hidden><b id="fn"></b> · <span id="fs"></span></div><div class="hres"><div class="hrow"><span class="halg">MD5</span><code class="hval" id="h_md5">—</code><button class="cp" data-for="h_md5" type="button">ကော်ပီ</button></div><div class="hrow"><span class="halg">SHA-1</span><code class="hval" id="h_sha1">—</code><button class="cp" data-for="h_sha1" type="button">ကော်ပီ</button></div><div class="hrow"><span class="halg">SHA-256</span><code class="hval" id="h_sha256">—</code><button class="cp" data-for="h_sha256" type="button">ကော်ပီ</button></div><div class="hrow"><span class="halg">SHA-512</span><code class="hval" id="h_sha512">—</code><button class="cp" data-for="h_sha512" type="button">ကော်ပီ</button></div></div><div class="cmp"><label>အလိုအလျောက်နှိုင်းယှဉ်ရန် တရားဝင် checksum ကို ကူးထည့်ပါ-</label><input type="text" id="exp" placeholder="ထုတ်ပြန်ထားသော hash ကို ဤနေရာတွင် ကူးထည့်ပါ။" autocomplete="off" spellcheck="false"><div id="cmpr" class="cmpr"></div></div><details class="txt"><summary>သို့မဟုတ် စာသားကို hash သို့ ကူးထည့်ပါ-</summary><textarea id="txt" rows="3" placeholder="သင် hash လုပ်လိုသော စာသားကို ဤနေရာတွင် ကူးထည့်ပါ။"></textarea><button type="button" id="htxt" class="btn">Hash စာသား</button></details><p class="note">တွက်ချက်မှုအားလုံးသည် သင့်ဘရောက်ဆာတွင် စက်တွင်းဖြစ်တတ်သည် - ဖိုင်များကို ဘယ်တော့မှ အပ်လုဒ်မလုပ်ပါ။</p></section><section class="tool" id="conv"><h2>2. အချိန်လွှဲပြောင်းခြင်းနှင့် ဒေတာယူနစ်ပြောင်းစက်</h2><p>သတ်မှတ်အမြန်နှုန်းဖြင့် ဖိုင်တစ်ဖိုင်ကို လွှဲပြောင်းရန် အချိန်မည်မျှကြာမည်ကို ခန့်မှန်းပြီး ဒဿမ (GB) နှင့် ဒွိ (GiB) ယူနစ်များကြားသို့ ပြောင်းပါ။</p><div class="cv"><div class="cvg"><label>ဒေတာအရွယ်အစား</label><div class="cvin"><input type="number" id="sz" value="1" min="0" step="any"><select id="szu"><option value="1e6">MB</option><option value="1e9" selected>GB</option><option value="1e12">TB</option><option value="1048576">MiB</option><option value="1073741824">GiB</option><option value="1099511627776">TiB</option></select></div></div><div class="cvg"><label>ကွန်ရက်မြန်နှုန်း</label><div class="cvin"><input type="number" id="sp" value="100" min="0" step="any"><select id="spu"><option value="mbps" selected>Mbps</option><option value="mbs">MB/s</option><option value="gbps">Gbps</option></select></div></div></div><div class="cvout"><span>ခန့်မှန်းခြေလွှဲပြောင်းချိန်</span><b id="ttime">—</b></div><div class="cvtab"><span>ဒေတာယူနစ်ပြောင်းလဲခြင်း။</span><div id="units" class="units"></div></div><p class="note">အစစ်အမှန်အမြန်နှုန်းသည် ဆာဗာ၊ လမ်းကြောင်းနှင့် ဆက်စပ်မှုပေါ်တွင်မူတည်သောကြောင့် ၎င်းသည် သီအိုရီအရ ခန့်မှန်းချက်သာဖြစ်သည်။</p></section>
+<h2>ဒေသန္တရ ဟက်ခ်လုပ်နည်း</h2><p>ခေတ်မီဘရောက်ဆာများသည် သင့်စက်ပေါ်တွင် SHA-1၊ SHA-256 နှင့် SHA-512 ကိုတွက်ချက်ပေးသည့် Web Crypto interface (crypto.subtle.digest) ကို ပေးပို့သည်။ MD5 သည် ထိုအင်တာဖေ့စ်၏ အစိတ်အပိုင်းမဟုတ်သောကြောင့် ၎င်းကို စာမျက်နှာတွင် တည်ဆောက်ထားသော open-source JavaScript အကောင်အထည်ဖော်မှုဖြင့် ပံ့ပိုးပေးထားသည်။ ဖိုင်ကို FileReader မှတဆင့် Memory တွင်ဖတ်ပြီး မည်သည့်အချက်တွင်မျှ ကွန်ရက်တောင်းဆိုမှုမပါဝင်ဘဲ အတုံးလိုက်အတုံးလိုက်လုပ်ထားသည်။</p><figure class="dgm-f"><svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="အပ်လုဒ်မတင်ဘဲ စက်တွင်းရှိ ဖိုင် hash ကိုတွက်ချက်သည့် ဘရောက်ဆာတစ်ခု၏ ပုံကြမ်း" class="dgm"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5856d6"/></marker></defs><rect x="14" y="48" width="150" height="54" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="89" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="15" fill="#1c1c3c">ဖို</text><line x1="170" y1="75" x2="214" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="220" y="40" width="180" height="70" rx="12" fill="#f5f5fb" stroke="#d7d8ee"/><text x="310" y="70" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1c1c3c">FileReader</text><text x="310" y="92" text-anchor="middle" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">chunks · local</text><line x1="406" y1="75" x2="450" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="456" y="40" width="150" height="70" rx="12" fill="#eef0ff" stroke="#c7c9f7"/><text x="531" y="68" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">MD5 · SHA-1</text><text x="531" y="90" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#5856d6" font-weight="700">SHA-256 · 512</text><line x1="612" y1="75" x2="656" y2="75" stroke="#5856d6" stroke-width="2" marker-end="url(#ar)"/><rect x="662" y="48" width="84" height="54" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="704" y="80" text-anchor="middle" font-family="system-ui,Arial" font-size="22" fill="#1f9d57">#</text><text x="380" y="24" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#6b6b8a">တွက်ချက်မှုအားလုံးသည် သင့်ဘရောက်ဆာတွင် စက်တွင်းဖြစ်တတ်</text></svg><figcaption>ပုံ 1- ဘရောက်ဆာက ၎င်းကို အပိုင်းလိုက်ဖတ်ပြီး checksum ကိုထုတ်ပေးနေချိန်တွင် ဖိုင်သည် သင့်စက်ပစ္စည်းပေါ်တွင်ရှိနေသည် - မည်သည့်အရာကိုမျှ အပ်လုဒ်မလုပ်ပါ။</figcaption></figure>
+<h2>Checksum ဖြင့် ဒေါင်းလုဒ်ကို ဘယ်လိုအတည်ပြုမလဲ။</h2><p>cloud drive သို့မဟုတ် တရားဝင်ဆိုက်မှ ဖိုင်တစ်ခုကို ဒေါင်းလုဒ်လုပ်ပြီးနောက်၊ ၎င်း၏ checksum ကိုရယူရန် အထက်ပါကိရိယာထဲသို့ ချပေးပြီးနောက် ၎င်းကို ထုတ်ဝေသူစာရင်းများ၏ တရားဝင်တန်ဖိုးနှင့် ဂဏန်းများဖြင့် ဂဏန်းများဖြင့် နှိုင်းယှဉ်ပါ။ အတိအကျကိုက်ညီမှုဆိုသည်မှာ ဖိုင်သည် ပြီးပြည့်စုံပြီး တုန်လှုပ်ခြင်းမရှိသော၊ မတူညီသော စာလုံးတစ်လုံးသည် အကူးအပြောင်းတွင် ပျက်စီးသွားသည် သို့မဟုတ် မွမ်းမံထားသောကြောင့် ၎င်းကို ထပ်မံဒေါင်းလုဒ်လုပ်ပါ။ SHA-256 ကို ဦးစားပေးပါ- MD5 နှင့် SHA-1 တို့သည် မြန်ဆန်သော်လည်း ဆော့ကစားရန် မသင့်တော်တော့ပါ။</p><figure class="dgm-f"><svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ဒေသအလိုက် တွက်ချက်ထားသော hash တစ်ခုကို တရားဝင်ထုတ်ဝေထားသော တန်ဖိုးနှင့် နှိုင်းယှဉ်သည့် အဆင့်ဇယား" class="dgm"><rect x="20" y="30" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="54" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">local</text><text x="34" y="76" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><rect x="20" y="100" width="300" height="56" rx="10" fill="#f5f5fb" stroke="#d7d8ee"/><text x="34" y="124" font-family="system-ui,Arial" font-size="12" fill="#6b6b8a">official</text><text x="34" y="146" font-family="ui-monospace,Consolas,monospace" font-size="14" fill="#1c1c3c">a1b2c3 … 9f8e</text><text x="356" y="100" text-anchor="middle" font-family="system-ui,Arial" font-size="30" fill="#5856d6">=</text><rect x="400" y="64" width="340" height="58" rx="12" fill="#e7f7ee" stroke="#b6e3c8"/><text x="430" y="100" font-family="system-ui,Arial" font-size="26" fill="#1f9d57">✓</text><text x="466" y="99" font-family="system-ui,Arial" font-size="15" fill="#1f7a47">ကိုက်ညီမှု- ဖိုင်သည် ပြီးပြည့်စုံပြီး တု</text></svg><figcaption>ပုံ 2- သင့်ဒေသတန်ဖိုးသည် တရားဝင်ဂဏန်းတစ်ခုအတွက် ဂဏန်းတစ်လုံးနှင့် ကိုက်ညီသည့်အခါမှသာ ဖိုင်ကို သင်ယုံကြည်နိုင်မည်ဖြစ်သည်။</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_my.webp"><img src="/img/board_my.png" alt="ဒေသအလိုက် တွက်ချက်ထားသော hash တစ်ခုကို တရားဝင်ထုတ်ဝေထားသော တန်ဖိုးနှင့် နှိုင်းယှဉ်သည့် အဆင့်ဇယား" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>ပုံ 2- သင့်ဒေသတန်ဖိုးသည် တရားဝင်ဂဏန်းတစ်ခုအတွက် ဂဏန်းတစ်လုံးနှင့် ကိုက်ညီသည့်အခါမှသာ ဖိုင်ကို သင်ယုံကြည်နိုင်မည်ဖြစ်သည်။</figcaption></figure>
+<h2>MD5 vs SHA-1 vs SHA-256- အသုံးပြုရန်</h2><p>အယ်လဂိုရီသမ် လေးခုစလုံးသည် ပုံသေလက်ဗွေကို ထုတ်ပေးသော်လည်း ၎င်းတို့၏ လုံခြုံရေးမှာ သိသိသာသာ ကွဲပြားသည်။ အောက်ပါဇယားသည် ထုတ်ပြန်ထားသော စံနှုန်းများနှင့် တရားဝင်သတိပေးချက်များကို အကျဉ်းချုပ်ဖော်ပြထားသည်။</p><table class="cmp-t"><thead><tr><th>Algorithm</th><th>အထွက်နည်းနည်းများသည်။</th><th>လုံခြုံရေးအခြေအနေ</th><th>ဘယ်အချိန်မှာ သုံးမလဲ။</th></tr></thead><tbody><tr><td class="halg">MD5</td><td>128</td><td>ယာဉ်တိုက်မှုဒဏ်ခံနိုင်ရည်မရှိတော့ပါ (RFC 6151)</td><td>မတော်တဆ- အကျင့်ပျက်ခြစားမှုကို စစ်ဆေးခြင်းသာဖြစ်ပြီး ဆော့ကစားခြင်းမှ ကာကွယ်ခြင်းမဟုတ်ပါ။</td></tr><tr><td class="halg">SHA-1</td><td>160</td><td>NIST သည် 2022 တွင် အငြိမ်းစားယူခဲ့ပြီး 2030 တွင် အပြီးအပြတ်ထွက်သွားသည်။</td><td>အမွေအနှစ် လိုက်ဖက်ညီမှု၊ အသစ်အသုံးပြုခြင်းကို ရှောင်ကြဉ်ပါ။</td></tr><tr><td class="halg">SHA-256</td><td>256</td><td>SHA-2 မိသားစု၊ လက်ရှိ လုံခြုံသည် (FIPS 180-4)</td><td>အကြံပြုထားသည်- ဒေါင်းလုဒ်လုပ်ပြီး ခိုင်မာမှုကို အတည်ပြုခြင်း။</td></tr><tr><td class="halg">SHA-512</td><td>512</td><td>SHA-2 မိသားစု၊ လက်ရှိ လုံခြုံသည် (FIPS 180-4)</td><td>အချိန်ပိုကြာအောင် hash လိုအပ်သည့်အခါ အသုံးပြုပါ။</td></tr></tbody></table>
+<section id="i4data" class="data"><h2>2026 အပြောင်းအရွှေ့အချိန်ခန့်မှန်းချက်</h2><p>သာမန်အိမ်သုံးဘရော့ဒ်ဘန်းအမြန်နှုန်းဖြင့် လွှဲပြောင်းရန် အရွယ်အစားအမျိုးမျိုးရှိသော ဖိုင်များမည်မျှကြာကြောင်း သီအိုရီခန့်မှန်းချက်ကြောင့် ဒေါင်းလုဒ်နှင့် အတည်ပြုခြင်းအတွက် စောင့်ဆိုင်းချိန်ကို သင်တိုင်းတာနိုင်သည်။ ၎င်းသည် bandwidth ကိုသာပြောင်းလဲပြီး လက်ဆွဲနှုတ်ဆက်ခြင်း၊ ပေါင်းစပ်ငွေနှင့် ဒစ်ခ်ရေးခြင်းများ မပါဝင်ပါ။</p><table class="cmp-t"><thead><tr><th>ဖိုင်အရွယ်အစား</th><th>10 Mbps</th><th>100 Mbps</th><th>1000 Mbps</th></tr></thead><tbody><tr><td>100 MB</td><td>1မိနစ် 20စက္ကန့်</td><td>8စက္ကန့်</td><td>1စက္ကန့်</td></tr><tr><td>1 GB</td><td>13မိနစ် 20စက္ကန့်</td><td>1မိနစ် 20စက္ကန့်</td><td>8စက္ကန့်</td></tr><tr><td>10 GB</td><td>2နာရီ 13မိနစ်</td><td>13မိနစ် 20စက္ကန့်</td><td>1မိနစ် 20စက္ကန့်</td></tr></tbody></table><p class="note est">ခန့်မှန်းချက်၊ ပထမပါတီတိုင်းတာခြင်းမဟုတ်ပါ (2026)</p></section>
+<section class="faqs"><h2>FAQ</h2><details class="faq"><summary>ဖိုင်တစ်ခုကို hash ရန် ဤဆိုက်သို့ အပ်လုဒ်လုပ်ခြင်းသည် ဘေးကင်းပါသလား။</summary><div>ကိရိယာသည် ဘာမှမတင်ပါ။ တွက်ချက်မှုအားလုံးသည် Web Crypto နှင့် built-in script ကို အသုံးပြု၍ သင့်ဘရောက်ဆာတွင် စက်တွင်းအလုပ်လုပ်သည်၊ ဖိုင်သည် သင့်စက်မှ ဘယ်သောအခါမှ မထွက်ဘဲ၊ ၎င်းသည် အော့ဖ်လိုင်းတွင်ပင် အလုပ်လုပ်ပါသည်။</div></details><details class="faq"><summary>မလုံခြုံပါက MD5 နှင့် SHA-1 ကို အဘယ်ကြောင့် ကမ်းလှမ်းနေသေးသနည်း။</summary><div>၎င်းတို့သည် မတော်တဆ အကျင့်ပျက်ခြစားမှုကို ဖမ်းမိခြင်းအတွက် လျင်မြန်ပြီး ကောင်းမွန်သော်လည်း တိုက်မိခြင်းများကို တမင်ဖန်တီးထားသောကြောင့် ၎င်းတို့ကို ခိုးယူစစ်ဆေးခြင်းအတွက် အသုံးမပြုရပါ။ လုံခြုံရေးအရေးကြီးသောအခါ SHA-256 ကိုသုံးပါ။</div></details><details class="faq"><summary>ဘရောက်ဆာသည် SHA-256 ကို အဘယ်ကြောင့် တွက်ချက်နိုင်သော်လည်း MD5 မဟုတ်ပါ။</summary><div>ဘရောက်ဆာ Web Crypto interface သည် MD5 မဟုတ်ဘဲ SHA-1/256/384/512 ကိုသာ တင်ပို့သည်။ ဤစာမျက်နှာရှိ MD5 သည် ပြည်တွင်း၌လည်း လုပ်ဆောင်သည့် open-source JavaScript အကောင်အထည်ဖော်မှုမှ လာပါသည်။</div></details><details class="faq"><summary>ကျွန်ုပ်၏တန်ဖိုးသည် တရားဝင်တန်ဖိုးနှင့် ကွာခြားပါသည်။ တိုက်ဆိုင်နေသေးလား။</summary><div>Hashes များသည် အသေးအမွှားကို အာရုံမခံဘဲ hex ပါဝင်မှုသာ အရေးကြီးသည်။ နှိုင်းယှဉ်သောအခါ၊ ကိရိယာသည် စာလုံးအသေးနှင့် space များကို လျစ်လျူရှုထားသောကြောင့် ထပ်တူထပ်မျှသော ဇာတ်ကောင်အစီအစဥ်ကို ကိုက်ညီမှုတစ်ခုအဖြစ် တွက်သည်။</div></details><details class="faq"><summary>checksum က မကိုက်ညီရင် ဘယ်လိုလုပ်မလဲ။</summary><div>ဒေါင်းလုဒ်လုပ်နေစဉ် သို့မဟုတ် ပြောင်းလဲနေချိန်တွင် ဖိုင်ပျက်စီးသွားသည်ဟု ဆိုလိုသည်။ ၎င်းကိုဖျက်ပြီး ထပ်မံဒေါင်းလုဒ်လုပ်ပါ၊ အကောင်းဆုံးအားဖြင့် တရားဝင်အရင်းအမြစ်မှနေ၍ နောက်တစ်ကြိမ်စစ်ဆေးပါ။</div></details><details class="faq"><summary>GB နှင့် GiB ကွာခြားချက်ကဘာလဲ။</summary><div>GB သည် ဒဿမ (အခြေခံ 1000) ဖြစ်ပြီး GiB သည် ဒွိ (အခြေခံ 1024၊ IEC စံနှုန်း) ဖြစ်သည်။ 1 GiB သည် 1.074 GB ခန့်ဖြစ်သည်၊ ယင်းသည် ကြော်ငြာထားသောစွမ်းရည်သည် စနစ်ပြသသည့်အရာနှင့် ကွဲပြားသည့်အကြောင်းရင်းတစ်ခုဖြစ်သည်။</div></details><details class="faq"><summary>Quark NetDisk မှဒေါင်းလုဒ်လုပ်ထားသောဖိုင်များကို အတည်ပြုနိုင်ပါသလား။</summary><div>ဟုတ်ကဲ့။ Quark NetDisk မှ ဒေါင်းလုဒ်လုပ်ပြီးနောက်၊ ၎င်း၏ SHA-256 ကို ရယူရန် ဤကိရိယာထဲသို့ ဖိုင်ကို ချပေးပြီး ဒေါင်းလုဒ်သည် ပြီးပြည့်စုံပြီး ယုံကြည်စိတ်ချရကြောင်း ထုတ်ဝေသူမှ ပေးထားသည့် checksum နှင့် နှိုင်းယှဉ်ပါ။</div></details></section>
+<section class="related"><h2>အရင်းအမြစ်များ</h2><p>ဤစာမျက်နှာရှိ နည်းပညာဆိုင်ရာ အချက်အလက်များကို အောက်ဖော်ပြပါ တရားဝင်သော အများသူငှာ ကိုးကားချက်များမှ စုစည်းထားပါသည်။</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" rel="nofollow" target="_blank">MDN — Web Crypto API: SubtleCrypto.digest()</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" rel="nofollow" target="_blank">NIST FIPS 180-4 — Secure Hash Standard (SHA)</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1321" rel="nofollow" target="_blank">RFC 1321 — The MD5 Message-Digest Algorithm</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6151" rel="nofollow" target="_blank">RFC 6151 — Updated Security Considerations for MD5</a></li><li><a href="https://www.nist.gov/news-events/news/2022/12/nist-retires-sha-1-cryptographic-algorithm" rel="nofollow" target="_blank">NIST — NIST Retires SHA-1 Cryptographic Algorithm (2022)</a></li><li><a href="https://physics.nist.gov/cuu/Units/binary.html" rel="nofollow" target="_blank">NIST — Definitions of the SI units: binary prefixes</a></li></ul></section>
+</main>
+<footer>MDN Web Crypto၊ NIST FIPS 180-4၊ RFC 1321 / RFC 6151 နှင့် ဒွိယူနစ်များအတွက် NIST မှတ်စုတို့မှ ပြုစုထားသော နည်းပညာဆိုင်ရာအချက်အလက်များ။ ၎င်းသည် ဖိုင်-သမာဓိရှိမှုကို စစ်ဆေးခြင်းအတွက်သာ open-source tool တစ်ခုဖြစ်သည်။ တည်းဖြတ်သူ- Shen Yan<br><a href="/about-shenyan/" rel="author">沈砚</a> · <a href="/">အိမ်</a> · MIT License</footer>
+</div>
+<script>window.QL={"computing": "ပြည်တွင်းမှာ ကွန်ပြူတာ...", "copied": "ကူးယူသည်။", "copy": "ကော်ပီ", "match": "ကိုက်ညီမှု- ဖိုင်သည် ပြီးပြည့်စုံပြီး တုန်လှုပ်ခြင်းမရှိပါ။", "nomatch": "ကိုက်ညီမှုမရှိပါ- ဖိုင်ပျက်စီးသွားခြင်း သို့မဟုတ် ပြောင်းလဲသွားခြင်း၊ ၎င်းကို ထပ်မံဒေါင်းလုဒ်လုပ်ပါ။", "file": "ဖို", "size": "အရွယ်အစား", "d": "ရက်", "h": "နာရီ", "m": "မိနစ်", "s": "စက္ကန့်"};</script><script src="/app.js"></script></body></html>
